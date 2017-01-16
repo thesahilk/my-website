@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var username = process.env.MONGO_USER;
 var password = process.env.MONGO_PASS;
 mongoose.connect('mongodb://'+username+':'+password+'@localhost/website');
+console.log('mongodb://'+username+':'+password+'@localhost/website');
 
 var blog = mongoose.model('Blog',
   {
