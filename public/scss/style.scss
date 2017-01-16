@@ -1,0 +1,125 @@
+$primary-color: rgb(255, 165, 0);
+$primary-color-faded: rgba(255, 165, 0, 0.8);
+$text-color: #555;
+$sub-text-color: #888;
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lucida Grande";
+  color: $text-color;
+}
+
+.bottom-underline {
+  border-bottom: 0.2em solid $primary-color;
+}
+
+#header {
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+#content {
+  padding: 20px;
+}
+
+li>a {
+  text-decoration: none;
+}
+
+a:visited, a:link {
+  color: $text-color;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.navbar-default {
+  background: transparent;
+  box-shadow: none;
+  border: 0px;
+  .navbar-nav{
+    .active>a {
+      @extend .bottom-underline;
+      background: none;
+      background-image: none;
+      box-shadow: none;
+    }
+    li>a {
+      margin-left: 10px;
+    }
+  }
+}
+
+.navbar-brand {
+    border-bottom: 0px $primary-color solid;
+}
+
+.active {
+    background: none;
+    font-weight: bold;
+}
+
+// FOR PORTFOLIO //
+.portfolio-container {
+  margin-top: 5%;
+}
+
+.card {
+  margin-bottom: 40px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+}
+
+// FOR BLOG //
+.blog-container {
+    margin-top: 40px;
+}
+
+.post-container {
+  margin-bottom: 50px;
+  a {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}
+
+.post-title {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.post-detail {
+    font-size: 1.3em;
+}
+
+.article-container {
+  h1 {
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 1.6em;
+    color: $sub-text-color;
+    margin-bottom: 50px;
+  }
+  h3 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 1.3em;
+    line-height: 1.7em;
+  }
+  blockquote{
+    border-left: 5px solid $primary-color;
+    p {
+      font-size: 1em;
+    }
+  }
+  a {
+    // color: $primary-color;
+    @extend .bottom-underline;
+  }
+}

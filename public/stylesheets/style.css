@@ -1,0 +1,87 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lucida Grande";
+  color: #555; }
+
+.bottom-underline, .navbar-default .navbar-nav .active > a, .article-container a {
+  border-bottom: 0.2em solid orange; }
+
+#header {
+  padding: 20px;
+  background-color: black;
+  color: white; }
+
+#content {
+  padding: 20px; }
+
+li > a {
+  text-decoration: none; }
+
+a:visited, a:link {
+  color: #555; }
+
+a:hover {
+  text-decoration: none; }
+
+.navbar-default {
+  background: transparent;
+  box-shadow: none;
+  border: 0px; }
+  .navbar-default .navbar-nav .active > a {
+    background: none;
+    background-image: none;
+    box-shadow: none; }
+  .navbar-default .navbar-nav li > a {
+    margin-left: 10px; }
+
+.navbar-brand {
+  border-bottom: 0px orange solid; }
+
+.active {
+  background: none;
+  font-weight: bold; }
+
+.portfolio-container {
+  margin-top: 5%; }
+
+.card {
+  margin-bottom: 40px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); }
+
+.blog-container {
+  margin-top: 40px; }
+
+.post-container {
+  margin-bottom: 50px; }
+  .post-container a {
+    color: orange;
+    text-decoration: underline; }
+
+.post-title {
+  font-size: 1.5em;
+  font-weight: lighter; }
+
+.post-detail {
+  font-size: 1.3em; }
+
+.article-container h1 {
+  font-weight: bold; }
+.article-container h2 {
+  font-size: 1.6em;
+  color: #888;
+  margin-bottom: 50px; }
+.article-container h3 {
+  margin-top: 50px;
+  margin-bottom: 20px; }
+.article-container p {
+  font-size: 1.3em;
+  line-height: 1.7em; }
+.article-container blockquote {
+  border-left: 5px solid orange; }
+  .article-container blockquote p {
+    font-size: 1em; }
+
+/*# sourceMappingURL=style.css.map */
