@@ -44,6 +44,10 @@ a:hover {
 
 .portfolio-container {
   margin-top: 5%; }
+  .portfolio-container p {
+    font-size: 1.33em;
+    font-family: 'Gentium Basic';
+    padding: 10px; }
 
 .card {
   margin-bottom: 40px;
