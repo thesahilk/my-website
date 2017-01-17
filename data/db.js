@@ -79,7 +79,7 @@ mod.hasMorePages = function(page, callback) {
 };
 
 mod.getPosts = function(page, callback) {
-  blog.find({}).sort({ publishDate: 1 }).skip(page*10).limit(10).exec(function (err, docs) {
+  blog.find({}).sort({ publishDate: -1 }).skip(page*10).limit(10).exec(function (err, docs) {
     if (err) {
       callback({ errorName: dbError, errorDescription: "DB Error in getPosts"});
     } else {
@@ -89,7 +89,7 @@ mod.getPosts = function(page, callback) {
 };
 
 mod.getProjects = function(page, callback) {
-  portfolio.find({}).sort({ publishDate: 1 }).skip(page*20).limit(20).exec(function (err, docs) {
+  portfolio.find({}).sort({ publishDate: -1 }).skip(page*20).limit(20).exec(function (err, docs) {
     if (err) {
       callback({ errorName: dbError, errorDescription: "DB Error in getProjects"});
     } else {
