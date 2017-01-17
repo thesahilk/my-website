@@ -2,7 +2,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Lucida Grande";
-  color: #555; }
+  color: #000; }
 
 .bottom-underline, .navbar-default .navbar-nav .active > a, .article-container a {
   border-bottom: 0.2em solid orange; }
@@ -19,7 +19,7 @@ li > a {
   text-decoration: none; }
 
 a:visited, a:link {
-  color: #555; }
+  color: #000; }
 
 a:hover {
   text-decoration: none; }
@@ -76,7 +76,7 @@ a:hover {
   margin-bottom: 30px; }
 .article-container h3 {
   margin-top: 50px;
-  color: #888;
+  color: #444;
   margin-bottom: 30px; }
 .article-container p {
   font-size: 1.3em;
@@ -86,7 +86,7 @@ a:hover {
   border-left: 5px solid orange; }
   .article-container blockquote p {
     font-size: 1.2em;
-    color: #888; }
+    color: #444; }
 .article-container img {
   margin-top: 25px;
   margin-bottom: 25px;
