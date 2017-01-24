@@ -1,4 +1,4 @@
 node_modules
 node_modules/*
-.saas-cache*
-.saas-cache/*
+.sass-cache
+.sass-cache/*
