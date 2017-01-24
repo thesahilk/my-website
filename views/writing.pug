@@ -3,8 +3,7 @@ extends writing-header
 block content
   .blog-container
     each post in posts
-      post
-      .col-md-7.col-md-offset-1
+      .col-md-7
         .post-container
           a(href="/writing/"+post.urlId)
             h1.post-title= post.title

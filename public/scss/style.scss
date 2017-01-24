@@ -11,7 +11,7 @@ body {
 }
 
 .bottom-underline {
-  border-bottom: 0.2em solid $primary-color;
+  border-bottom: 0.15em solid $primary-color;
 }
 
 #header {
@@ -61,6 +61,18 @@ a:hover {
     font-weight: bold;
 }
 
+.intro {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  a {
+    @extend .bottom-underline;
+  }
+  h3 {
+    margin-top: 0.5em;
+  }
+}
+
 // FOR PORTFOLIO //
 .portfolio-container {
   margin-top: 5%;
@@ -76,6 +88,12 @@ a:hover {
   padding: 5px;
   border-radius: 5px;
   box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  &:hover {
+    box-shadow: 0px 0px 10px $primary-color;
+  }
 }
 
 // FOR BLOG //
@@ -139,4 +157,12 @@ a:hover {
     // color: $primary-color;
     @extend .bottom-underline;
   }
+}
+
+.footer {
+  margin-top: 100px;
+  color: #AAA;
+  position: relative;
+  bottom: 0px;
+  font-size: 0.8em;
 }
