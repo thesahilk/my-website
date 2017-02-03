@@ -4,8 +4,14 @@ body {
   font-family: "Lucida Grande";
   color: #000; }
 
+.nav li {
+  display: table-cell !important; }
+
 .bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .article-container a {
   border-bottom: 0.15em solid orange; }
+
+.bottom-underline-thin, .article-container blockquote a {
+  border-bottom: 0.05em solid orange; }
 
 #header {
   padding: 20px;
@@ -52,7 +58,6 @@ a:hover {
   margin-top: 5%; }
   .portfolio-container p {
     font-size: 1.33em;
-    font-family: 'Gentium Basic';
     padding: 10px; }
 
 .card {
@@ -72,7 +77,6 @@ a:hover {
 .post-container {
   margin-bottom: 50px; }
   .post-container a {
-    color: orange;
     text-decoration: underline; }
 
 .post-title {
@@ -83,31 +87,41 @@ a:hover {
   font-size: 1.3em; }
 
 .article-container h1 {
-  font-weight: bold;
-  margin-top: 50px;
+  font-size: 3em;
+  margin-top: 60px;
   margin-bottom: 30px; }
 .article-container h2 {
-  margin-top: 50px;
-  margin-bottom: 30px; }
+  color: #666;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  font-family: 'Martel', serif;
+  line-height: 130%; }
 .article-container h3 {
-  margin-top: 50px;
-  color: #444;
-  margin-bottom: 30px; }
+  margin-top: 60px;
+  color: #666;
+  margin-bottom: 30px;
+  font-family: 'Martel', serif;
+  line-height: 210%; }
 .article-container p {
-  font-size: 1.3em;
+  font-size: 1.4em;
   line-height: 1.7em;
-  font-family: 'Gentium Basic', serif; }
-.article-container blockquote {
-  border-left: 5px solid orange; }
-  .article-container blockquote p {
-    font-size: 1.2em;
-    color: #444; }
+  font-family: 'Martel', serif;
+  line-height: 210%; }
 .article-container img {
   margin-top: 25px;
   margin-bottom: 25px;
   border-radius: 6px;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   width: 100%; }
+.article-container a {
+  color: #666; }
+.article-container blockquote {
+  border-left: 5px solid orange; }
+  .article-container blockquote p {
+    font-size: 1.2em;
+    color: #666; }
+  .article-container blockquote a {
+    color: #000; }
 
 .footer {
   margin-top: 100px;

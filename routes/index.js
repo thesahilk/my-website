@@ -9,14 +9,14 @@ router.get("/", function(req, res, next) {
   var page = req.query.page ? req.query.page : 0;
   db.getProjects(page, function(err, projects) {
     console.log(projects);
-    res.render("index", { title: "design | navarjun", projects: projects });
+    res.render("index", { navbar: "design", title: "design | navarjun", projects: projects });
   });
 });
 
 router.get("/writing", function(req, res, next) {
   var page = req.query.page ? req.query.page : 0;
   db.getPosts(page, function(err, posts) {
-    res.render("writing", { title: "writing | navarjun", posts: posts });
+    res.render("writing", { navbar: "writing", title: "writing | navarjun", posts: posts });
   });
 });
 
@@ -30,7 +30,7 @@ router.get("/writing/:urlId", function(req, res, next) {
       request.get(post.blogFile, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             var html = markdown.toHTML(body);
-            res.render("writing-post", { title: post.title + " | navarjun", post: html });
+            res.render("writing-post", { navbar: "writing", title: post.title + " | navarjun", post: html });
           }
       });
     }
@@ -48,7 +48,7 @@ router.get("/design/:urlId", function(req, res, next) {
           if (!error && response.statusCode == 200) {
             var html = markdown.toHTML(body);
             console.log(html);
-            res.render("design-post", { title: project.title + " | navarjun", post: html });
+            res.render("design-post", { navbar: "design", title: project.title + " | navarjun", post: html });
           }
       });
     }
