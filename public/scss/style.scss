@@ -1,7 +1,9 @@
 $primary-color: rgb(255, 165, 0);
 $primary-color-faded: rgba(255, 165, 0, 0.8);
-$text-color: #555;
-$sub-text-color: #888;
+$text-color: #000;
+$sub-text-color: #666;
+
+$break-small: 768px;
 
 body {
   padding: 0;
@@ -10,8 +12,15 @@ body {
   color: $text-color;
 }
 
+.nav li {
+  display:table-cell !important;
+}
+
 .bottom-underline {
-  border-bottom: 0.2em solid $primary-color;
+  border-bottom: 0.15em solid $primary-color;
+}
+.bottom-underline-thin {
+  border-bottom: 0.05em solid $primary-color;
 }
 
 #header {
@@ -61,9 +70,25 @@ a:hover {
     font-weight: bold;
 }
 
+.intro {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  a {
+    @extend .bottom-underline;
+  }
+  h3 {
+    margin-top: 0.5em;
+  }
+}
+
 // FOR PORTFOLIO //
 .portfolio-container {
   margin-top: 5%;
+  p {
+    font-size: 1.33em;
+    padding: 10px;
+  }
 }
 
 .card {
@@ -71,6 +96,12 @@ a:hover {
   padding: 5px;
   border-radius: 5px;
   box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  &:hover {
+    box-shadow: 0px 0px 10px $primary-color;
+  }
 }
 
 // FOR BLOG //
@@ -81,7 +112,6 @@ a:hover {
 .post-container {
   margin-bottom: 50px;
   a {
-    color: $primary-color;
     text-decoration: underline;
   }
 }
@@ -97,29 +127,91 @@ a:hover {
 
 .article-container {
   h1 {
-    font-weight: bold;
+    font-size: 3em;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    @media screen and (max-width: $break-small) {
+      font-size: 2em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      line-height: 160%;
+    }
   }
   h2 {
-    font-size: 1.6em;
     color: $sub-text-color;
-    margin-bottom: 50px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-family: 'Martel', serif;
+    line-height: 130%;
+    @media screen and (max-width: $break-small) {
+      font-size: 1.5em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      line-height: 140%;
+    }
   }
   h3 {
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 60px;
+    color: $sub-text-color;
+    margin-bottom: 30px;
+    font-family: 'Martel', serif;
+    line-height: 210%;
+    @media screen and (max-width: $break-small) {
+      font-size: 1.5em;
+      line-height: 140%;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
   }
   p {
-    font-size: 1.3em;
+    font-size: 1.4em;
     line-height: 1.7em;
+    font-family: 'Martel', serif;
+    line-height: 210%;
+    @media screen and (max-width: $break-small) {
+      font-size: 1.25em;
+      line-height: 170%;
+    }
+  }
+  img {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+    width: 100%;
+  }
+  a {
+    color: $sub-text-color;
+    @extend .bottom-underline;
   }
   blockquote{
     border-left: 5px solid $primary-color;
+    @media screen and (max-width: $break-small) {
+      border-left: 2px solid $primary-color;
+    }
     p {
-      font-size: 1em;
+      font-size: 1.2em;
+      color: $sub-text-color;
+      @media screen and (max-width: $break-small) {
+        font-size: 1em;
+        line-height: 150%;
+      }
+    }
+    a {
+      color: #000;
+      @extend .bottom-underline-thin;
     }
   }
-  a {
-    // color: $primary-color;
-    @extend .bottom-underline;
-  }
+}
+
+.social {
+  padding-top: 60px;
+}
+
+.footer {
+  margin-top: 100px;
+  color: #AAA;
+  position: relative;
+  bottom: 0px;
+  font-size: 0.8em;
 }

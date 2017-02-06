@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var username = process.env.MONGO_USER;
 var password = process.env.MONGO_PASS;
-mongoose.connect('mongodb://'+username+':'+password+'@localhost/website');
+var mongoServer = process.env.MONGO_SERVER;
+mongoose.connect('mongodb://'+username+':'+password+'@'+mongoServer+'/website?authSource=admin');
+console.log('mongodb://'+username+':'+password+'@'+mongoServer+'/website?authSource=admin');
 
 var blog = mongoose.model('Blog',
   {
@@ -77,7 +79,7 @@ mod.hasMorePages = function(page, callback) {
 };
 
 mod.getPosts = function(page, callback) {
-  blog.find({}).sort({ publishDate: 1 }).skip(page*10).limit(10).exec(function (err, docs) {
+  blog.find({}).sort({ publishDate: -1 }).skip(page*10).limit(10).exec(function (err, docs) {
     if (err) {
       callback({ errorName: dbError, errorDescription: "DB Error in getPosts"});
     } else {
@@ -87,7 +89,7 @@ mod.getPosts = function(page, callback) {
 };
 
 mod.getProjects = function(page, callback) {
-  portfolio.find({}).sort({ publishDate: 1 }).skip(page*20).limit(20).exec(function (err, docs) {
+  portfolio.find({}).sort({ publishDate: -1 }).skip(page*20).limit(20).exec(function (err, docs) {
     if (err) {
       callback({ errorName: dbError, errorDescription: "DB Error in getProjects"});
     } else {
@@ -106,12 +108,32 @@ mod.findPost = function(urlId, callback) {
   });
 };
 
+mod.findPostById = function(postId, callback) {
+  blog.findById(postId, function(err, post) {
+    if (err) {
+      callback(err, undefined);
+    } else {
+      callback(undefined, post);
+    }
+  });
+};
+
 mod.findProject = function(urlId, callback) {
   portfolio.findOne({urlId: urlId}).exec(function(err, doc){
     if (err) {
       callback({ errorName: dbError, errorDescription: "DB Error in findProject"});
     } else {
       callback(undefined, doc);
+    }
+  });
+};
+
+mod.findProjectById = function(projectId, callback) {
+  portfolio.findById(projectId, function(err, project) {
+    if (err) {
+      callback(err, undefined);
+    } else {
+      callback(undefined, project);
     }
   });
 };

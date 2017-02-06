@@ -2,10 +2,16 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Lucida Grande";
-  color: #555; }
+  color: #000; }
 
-.bottom-underline, .navbar-default .navbar-nav .active > a, .article-container a {
-  border-bottom: 0.2em solid orange; }
+.nav li {
+  display: table-cell !important; }
+
+.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .article-container a {
+  border-bottom: 0.15em solid orange; }
+
+.bottom-underline-thin, .article-container blockquote a {
+  border-bottom: 0.05em solid orange; }
 
 #header {
   padding: 20px;
@@ -19,7 +25,7 @@ li > a {
   text-decoration: none; }
 
 a:visited, a:link {
-  color: #555; }
+  color: #000; }
 
 a:hover {
   text-decoration: none; }
@@ -42,14 +48,28 @@ a:hover {
   background: none;
   font-weight: bold; }
 
+.intro {
+  margin-top: 50px;
+  margin-bottom: 50px; }
+  .intro h3 {
+    margin-top: 0.5em; }
+
 .portfolio-container {
   margin-top: 5%; }
+  .portfolio-container p {
+    font-size: 1.33em;
+    padding: 10px; }
 
 .card {
   margin-bottom: 40px;
   padding: 5px;
   border-radius: 5px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease; }
+  .card:hover {
+    box-shadow: 0px 0px 10px orange; }
 
 .blog-container {
   margin-top: 40px; }
@@ -57,7 +77,6 @@ a:hover {
 .post-container {
   margin-bottom: 50px; }
   .post-container a {
-    color: orange;
     text-decoration: underline; }
 
 .post-title {
@@ -68,20 +87,79 @@ a:hover {
   font-size: 1.3em; }
 
 .article-container h1 {
-  font-weight: bold; }
+  font-size: 3em;
+  margin-top: 60px;
+  margin-bottom: 30px; }
+  @media screen and (max-width: 768px) {
+    .article-container h1 {
+      font-size: 2em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      line-height: 160%; } }
 .article-container h2 {
-  font-size: 1.6em;
-  color: #888;
-  margin-bottom: 50px; }
+  color: #666;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  font-family: 'Martel', serif;
+  line-height: 130%; }
+  @media screen and (max-width: 768px) {
+    .article-container h2 {
+      font-size: 1.5em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      line-height: 140%; } }
 .article-container h3 {
-  margin-top: 50px;
-  margin-bottom: 20px; }
+  margin-top: 60px;
+  color: #666;
+  margin-bottom: 30px;
+  font-family: 'Martel', serif;
+  line-height: 210%; }
+  @media screen and (max-width: 768px) {
+    .article-container h3 {
+      font-size: 1.5em;
+      line-height: 140%;
+      margin-top: 30px;
+      margin-bottom: 15px; } }
 .article-container p {
-  font-size: 1.3em;
-  line-height: 1.7em; }
+  font-size: 1.4em;
+  line-height: 1.7em;
+  font-family: 'Martel', serif;
+  line-height: 210%; }
+  @media screen and (max-width: 768px) {
+    .article-container p {
+      font-size: 1.25em;
+      line-height: 170%; } }
+.article-container img {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  width: 100%; }
+.article-container a {
+  color: #666; }
 .article-container blockquote {
   border-left: 5px solid orange; }
+  @media screen and (max-width: 768px) {
+    .article-container blockquote {
+      border-left: 2px solid orange; } }
   .article-container blockquote p {
-    font-size: 1em; }
+    font-size: 1.2em;
+    color: #666; }
+    @media screen and (max-width: 768px) {
+      .article-container blockquote p {
+        font-size: 1em;
+        line-height: 150%; } }
+  .article-container blockquote a {
+    color: #000; }
+
+.social {
+  padding-top: 60px; }
+
+.footer {
+  margin-top: 100px;
+  color: #AAA;
+  position: relative;
+  bottom: 0px;
+  font-size: 0.8em; }
 
 /*# sourceMappingURL=style.css.map */
