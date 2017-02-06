@@ -108,12 +108,32 @@ mod.findPost = function(urlId, callback) {
   });
 };
 
+mod.findPostById = function(postId, callback) {
+  blog.findById(postId, function(err, post) {
+    if (err) {
+      callback(err, undefined);
+    } else {
+      callback(undefined, post);
+    }
+  });
+};
+
 mod.findProject = function(urlId, callback) {
   portfolio.findOne({urlId: urlId}).exec(function(err, doc){
     if (err) {
       callback({ errorName: dbError, errorDescription: "DB Error in findProject"});
     } else {
       callback(undefined, doc);
+    }
+  });
+};
+
+mod.findProjectById = function(projectId, callback) {
+  portfolio.findById(projectId, function(err, project) {
+    if (err) {
+      callback(err, undefined);
+    } else {
+      callback(undefined, project);
     }
   });
 };

@@ -8,8 +8,32 @@ var markdown = require('markdown').markdown;
 router.get("/", function(req, res, next) {
   var page = req.query.page ? req.query.page : 0;
   db.getProjects(page, function(err, projects) {
-    console.log(projects);
     res.render("index", { navbar: "design", title: "design | navarjun", projects: projects });
+  });
+});
+
+/* twitter share link */
+router.get("/w/:postId", function(req, res, next) {
+  var postId = req.params.postId;
+  postId = encodeURIComponent(postId);
+  db.findPostById(postId, function(err, post) {
+    if (err) {
+      res.redirect("/error");
+    } else {
+      res.redirect("/writing/"+post.urlId);
+    }
+  });
+});
+
+router.get("/d/:projectId", function(req, res, next) {
+  var projectId = req.params.projectId;
+  projectId = encodeURIComponent(projectId);
+  db.findProjectById(projectId, function(err, project) {
+    if (err) {
+      res.redirect("/error");
+    } else {
+      res.redirect("/design/"+project.urlId);
+    }
   });
 });
 
@@ -25,12 +49,12 @@ router.get("/writing/:urlId", function(req, res, next) {
   urlId = encodeURIComponent(urlId);
   db.findPost(urlId, function(err, post) {
     if (err) {
-      console.log(err);
+      res.redirect("/error");
     } else {
       request.get(post.blogFile, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             var html = markdown.toHTML(body);
-            res.render("writing-post", { navbar: "writing", title: post.title + " | navarjun", post: html });
+            res.render("writing-post", { navbar: "writing", title: post.title + " | navarjun", post: html, url: "http://www.navarjun.com/writing/"+urlId, params: post });
           }
       });
     }
@@ -42,13 +66,13 @@ router.get("/design/:urlId", function(req, res, next) {
   urlId = encodeURIComponent(urlId);
   db.findProject(urlId, function(err, project) {
     if (err) {
-      console.log(err);
+      res.redirect("/error");
     } else {
+      console.log("xxxx");
       request.get(project.blogFile, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             var html = markdown.toHTML(body);
-            console.log(html);
-            res.render("design-post", { navbar: "design", title: project.title + " | navarjun", post: html });
+            res.render("design-post", { navbar: "design", title: project.title + " | navarjun", post: html, url: "http://www.navarjun.com/design/"+urlId, params: project });
           }
       });
     }
@@ -72,6 +96,10 @@ router.post("/addProject", function(req, res, next) {
   console.log(req.param("title"), req.param("startDate"), req.param("endDate"), publishDate, req.param("imageFile"), req.param("blogFile"), req.param("tags"));
   db.addProject(req.param("title"), req.param("startDate"), req.param("endDate"), publishDate, req.param("imageFile"), req.param("blogFile"), req.param("tags"));
   res.send("OK");
+});
+
+router.get("/error", function(req, res, next) {
+  res.render("error");
 });
 
 module.exports = router;

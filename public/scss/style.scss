@@ -3,6 +3,8 @@ $primary-color-faded: rgba(255, 165, 0, 0.8);
 $text-color: #000;
 $sub-text-color: #666;
 
+$break-small: 768px;
+
 body {
   padding: 0;
   margin: 0;
@@ -128,6 +130,12 @@ a:hover {
     font-size: 3em;
     margin-top: 60px;
     margin-bottom: 30px;
+    @media screen and (max-width: $break-small) {
+      font-size: 2em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      line-height: 160%;
+    }
   }
   h2 {
     color: $sub-text-color;
@@ -135,7 +143,12 @@ a:hover {
     margin-bottom: 30px;
     font-family: 'Martel', serif;
     line-height: 130%;
-
+    @media screen and (max-width: $break-small) {
+      font-size: 1.5em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      line-height: 140%;
+    }
   }
   h3 {
     margin-top: 60px;
@@ -143,12 +156,22 @@ a:hover {
     margin-bottom: 30px;
     font-family: 'Martel', serif;
     line-height: 210%;
+    @media screen and (max-width: $break-small) {
+      font-size: 1.5em;
+      line-height: 140%;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
   }
   p {
     font-size: 1.4em;
     line-height: 1.7em;
     font-family: 'Martel', serif;
     line-height: 210%;
+    @media screen and (max-width: $break-small) {
+      font-size: 1.25em;
+      line-height: 170%;
+    }
   }
   img {
     margin-top: 25px;
@@ -163,15 +186,26 @@ a:hover {
   }
   blockquote{
     border-left: 5px solid $primary-color;
+    @media screen and (max-width: $break-small) {
+      border-left: 2px solid $primary-color;
+    }
     p {
       font-size: 1.2em;
       color: $sub-text-color;
+      @media screen and (max-width: $break-small) {
+        font-size: 1em;
+        line-height: 150%;
+      }
     }
     a {
       color: #000;
       @extend .bottom-underline-thin;
     }
   }
+}
+
+.social {
+  padding-top: 60px;
 }
 
 .footer {
