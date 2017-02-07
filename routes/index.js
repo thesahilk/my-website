@@ -54,7 +54,7 @@ router.get("/writing/:urlId", function(req, res, next) {
       request.get(post.blogFile, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             var html = markdown.toHTML(body);
-            res.render("writing-post", { navbar: "writing", title: post.title + " | navarjun", post: html, url: "http://www.navarjun.com/writing/"+urlId, params: post });
+            res.render("writing-post", { navbar: "writing", title: post.title + " | navarjun", post: html, url: "http://navarjun.com/writing/"+urlId, params: post });
           }
       });
     }
@@ -72,7 +72,7 @@ router.get("/design/:urlId", function(req, res, next) {
       request.get(project.blogFile, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             var html = markdown.toHTML(body);
-            res.render("design-post", { navbar: "design", title: project.title + " | navarjun", post: html, url: "http://www.navarjun.com/design/"+urlId, params: project });
+            res.render("design-post", { navbar: "design", title: project.title + " | navarjun", post: html, url: "http://navarjun.com/design/"+urlId, params: project });
           }
       });
     }
