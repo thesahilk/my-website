@@ -21,6 +21,7 @@ var portfolio = mongoose.model('Portfolio',
     startDate: Number,
     endDate: Number,
     publishDate: Number,
+    description: String,
     imageFile: String,
     blogFile: String,
     tags: String,
@@ -50,13 +51,14 @@ mod.addPost = function(title, summary, blogFile, publishDate, tags, callback) {
   }
 };
 
-mod.addProject = function(title, startDate, endDate, publishDate, imageFile, blogFile, tags, callback) {
+mod.addProject = function(title, startDate, endDate, publishDate, description, imageFile, blogFile, tags, callback) {
   if (title && startDate && endDate && publishDate && imageFile && blogFile && tags) {
     var portfolioDetails = new portfolio({
       title: title,
       startDate: startDate,
       endDate: endDate,
       publishDate: publishDate,
+      description: description,
       imageFile: imageFile,
       blogFile: blogFile,
       tags: tags,

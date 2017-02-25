@@ -19,6 +19,7 @@ $("#port-submit").click(function(){
     startDate: $("#port-startDate").val(),
     endDate: $("#port-endDate").val(),
     publishDate: $("#port-publishDate").val(),
+    description: $("#port-description").val(),
     imageFile: $("#port-imageFile").val(),
     blogFile: $("#port-blogFile").val(),
     tags: $("#port-tags").val()
