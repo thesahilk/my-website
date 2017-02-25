@@ -7,11 +7,11 @@ body {
 .nav li {
   display: table-cell !important; }
 
-.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .article-container a {
-  border-bottom: 0.15em solid orange; }
+.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .card h3 span, .post-container h1 span, .article-container a {
+  border-bottom: 2px solid orange; }
 
 .bottom-underline-thin, .article-container blockquote a {
-  border-bottom: 0.05em solid orange; }
+  border-bottom: 1px solid orange; }
 
 #header {
   padding: 20px;
@@ -69,16 +69,13 @@ a:hover {
 .card {
   margin-bottom: 40px;
   margin-top: 20px;
-  padding: 15px 0px;
-  border-radius: 5px;
-  border-left: 2px solid #FFF;
-  border-right: 2px solid #FFF; }
+  padding: 15px 0px; }
   .card h3 {
     padding-left: 10px;
     padding-top: 0px;
     margin-top: 0px; }
   .card p {
-    font-family: 'Martel', sans-serif;
+    font-family: 'Martel', serif;
     font-size: 1.2em; }
   .card img {
     border: 1px solid #DDD;
@@ -88,17 +85,15 @@ a:hover {
     @media screen and (max-width: 768px) {
       .card img {
         margin-bottom: 20px; } }
-  .card:hover {
-    border-left: 2px solid orange;
-    border-right: 2px solid orange; }
 
 .blog-container {
   margin-top: 40px; }
 
 .post-container {
   margin-bottom: 50px; }
-  .post-container a {
-    text-decoration: underline; }
+  .post-container p, .post-container sub {
+    font-family: 'Martel', serif;
+    font-size: 1.2em; }
 
 .post-title {
   font-size: 1.5em;

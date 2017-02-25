@@ -17,10 +17,10 @@ body {
 }
 
 .bottom-underline {
-  border-bottom: 0.15em solid $primary-color;
+  border-bottom: 2px solid $primary-color;
 }
 .bottom-underline-thin {
-  border-bottom: 0.05em solid $primary-color;
+  border-bottom: 1px solid $primary-color;
 }
 
 #header {
@@ -101,9 +101,6 @@ a:hover {
   margin-bottom: 40px;
   margin-top: 20px;
   padding: 15px 0px;
-  border-radius: 5px;
-  border-left: 2px solid #FFF;
-  border-right: 2px solid #FFF;
   // -webkit-transition: all 0.3s ease;
   // -moz-transition: all 0.3s ease;
   // -o-transition: all 0.3s ease;
@@ -111,9 +108,12 @@ a:hover {
     padding-left: 10px;
     padding-top: 0px;
     margin-top: 0px;
+    span {
+      @extend .bottom-underline;
+    }
   }
   p {
-    font-family: 'Martel', sans-serif;
+    font-family: 'Martel', serif;
     font-size: 1.2em;
   }
   img {
@@ -125,11 +125,6 @@ a:hover {
       margin-bottom: 20px;
     }
   }
-  &:hover {
-    // box-shadow: 0px 0px 2px $sub-text-color;
-    border-left: 2px solid $primary-color;
-    border-right: 2px solid $primary-color;
-  }
 }
 
 // FOR BLOG //
@@ -139,8 +134,14 @@ a:hover {
 
 .post-container {
   margin-bottom: 50px;
-  a {
-    text-decoration: underline;
+  h1 {
+    span {
+      @extend .bottom-underline;
+    }
+  }
+  p, sub {
+    font-family: 'Martel', serif;
+    font-size: 1.2em;
   }
 }
 
