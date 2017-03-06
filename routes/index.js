@@ -44,6 +44,16 @@ router.get("/writing", function(req, res, next) {
   });
 });
 
+router.get("/shop", function(req, res, next) {
+  var page = req.query.page ? req.query.page : 0;
+  db.getShopItems(page, function(err, items) {
+    console.log(items[0]);
+    res.render("shop", { navbar: "shop", title: "shop | navarjun", items: items })
+  });
+});
+
+// -- DETAILS POSTS -- //
+
 router.get("/writing/:urlId", function(req, res, next) {
   var urlId = req.params.urlId;
   urlId = encodeURIComponent(urlId);
@@ -78,6 +88,7 @@ router.get("/design/:urlId", function(req, res, next) {
   });
 });
 
+// -- EDITOR THINGS -- //
 router.get("/editor", function(req, res, next) {
   res.render("editor");
 });
@@ -94,6 +105,11 @@ router.post("/addProject", function(req, res, next) {
   res.send("OK");
 });
 
+router.post("/addShopItem", function(req, res, next) {
+  var publishDate = req.param("publishDate") ? req.param("publishDate") : (new Date()).valueOf();
+  db.addShopItem(req.param("title"), req.param("description"), req.param("isAvailable"), req.param("imageFile"), req.param("width_cm"), req.param("height_cm"), publishDate, req.param("priceUSD"));
+  res.send("OK");
+});
 router.get("/error", function(req, res, next) {
   res.render("error");
 });

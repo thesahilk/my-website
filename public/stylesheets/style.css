@@ -7,7 +7,7 @@ body {
 .nav li {
   display: table-cell !important; }
 
-.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .card h3 span, .post-container h1 span, .article-container a {
+.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .card h3 span, .shopcard h3 span, .post-container h1 span, .article-container a {
   border-bottom: 2px solid orange; }
 
 .bottom-underline-thin, .article-container blockquote a {
@@ -60,31 +60,43 @@ a:hover {
   .intro h3 {
     margin-top: 0.5em; }
 
-.portfolio-container {
+.portfolio-container, .shop-container {
   margin-top: 5%; }
-  .portfolio-container p {
+  .portfolio-container p, .shop-container p {
     font-size: 1.33em;
     padding: 10px; }
 
-.card {
+.card, .shopcard {
   margin-bottom: 40px;
   margin-top: 20px;
   padding: 15px 0px; }
-  .card h3 {
+  .card h3, .shopcard h3 {
     padding-left: 10px;
     padding-top: 0px;
     margin-top: 0px; }
-  .card p {
+  .card p, .shopcard p {
     font-family: 'Martel', serif;
     font-size: 1.2em; }
-  .card img {
+  .card img, .shopcard img {
     border: 1px solid #DDD;
     border-radius: 5px;
     width: 100%;
     max-width: 350px; }
     @media screen and (max-width: 768px) {
-      .card img {
+      .card img, .shopcard img {
         margin-bottom: 20px; } }
+
+.shopcard img {
+  max-width: none; }
+.shopcard .price {
+  text-align: right; }
+.shopcard figcaption {
+  padding-left: 8px;
+  font-size: 1em;
+  color: #666; }
+.shopcard .header {
+  border-bottom: 2px solid orange;
+  margin-bottom: 20px; }
 
 .blog-container {
   margin-top: 40px; }

@@ -26,12 +26,24 @@ html
                 a(href="/") design
               li
                 a(href="/writing") writing
+              li
+                a(href="/shop") shop
         else if (navbar == "writing")
           ul.nav.navbar-nav.navbar-right
               li
                 a(href="/") design
               li.active
                 a(href="/writing") writing
+              li
+                a(href="/shop") shop
+        else if (navbar == "shop")
+          ul.nav.navbar-nav.navbar-right
+              li
+                a(href="/") design
+              li
+                a(href="/writing") writing
+              li.active
+                a(href="/shop") shop
     .container
       block content
 

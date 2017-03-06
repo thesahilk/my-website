@@ -89,7 +89,7 @@ a:hover {
 }
 
 // FOR PORTFOLIO //
-.portfolio-container {
+.portfolio-container, .shop-container {
   margin-top: 5%;
   p {
     font-size: 1.33em;
@@ -97,7 +97,7 @@ a:hover {
   }
 }
 
-.card {
+.card, .shopcard{
   margin-bottom: 40px;
   margin-top: 20px;
   padding: 15px 0px;
@@ -124,6 +124,25 @@ a:hover {
     @media screen and (max-width: 768px) {
       margin-bottom: 20px;
     }
+  }
+}
+
+.shopcard {
+  img {
+    max-width: none;
+  }
+  .price {
+    text-align: right;
+  }
+  figcaption {
+    padding-left: 8px;
+    font-size: 1em;
+    color: $sub-text-color;
+  }
+  .header {
+    border-bottom: 2px solid orange;
+    margin-bottom: 20px;
+
   }
 }
 

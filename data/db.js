@@ -28,7 +28,21 @@ var portfolio = mongoose.model('Portfolio',
     urlId: String
   });
 
+var shop = mongoose.model('Shop', {
+    title: String,
+    description: String,
+    isAvailable: Boolean,
+    imageFile: String,
+    width_cm: Number,
+    height_cm: Number,
+    publishDate: Number,
+    priceUSD: Number,
+    urlId: String
+  });
+
 var mod = {};
+
+// -- ADD SOMETHING TO DB -- //
 mod.addPost = function(title, summary, blogFile, publishDate, tags, callback) {
   if (title && summary && blogFile && tags) {
     var blogDetails = new blog({
@@ -76,10 +90,37 @@ mod.addProject = function(title, startDate, endDate, publishDate, description, i
   }
 };
 
+mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm, height_cm, publishDate, priceUSD, callback) {
+  if (title && description && isAvailable && imageFile && width_cm && height_cm && publishDate && priceUSD) {
+    var shopItem = new shop({
+      title: title,
+      description: description,
+      isAvailable: isAvailable,
+      imageFile: imageFile,
+      width_cm: width_cm,
+      height_cm: height_cm,
+      publishDate: publishDate,
+      priceUSD: priceUSD,
+      urlId: encodeURIComponent(title.toLowerCase().replace(" ", "-"))
+    });
+    shopItem.save(function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+
+      }
+    });
+  } else {
+    // callback
+  }
+}
+
 mod.hasMorePages = function(page, callback) {
 
 };
 
+
+// -- GET LIST OF THINGS -- //
 mod.getPosts = function(page, callback) {
   blog.find({}).sort({ publishDate: -1 }).skip(page*10).limit(10).exec(function (err, docs) {
     if (err) {
@@ -100,6 +141,17 @@ mod.getProjects = function(page, callback) {
   });
 };
 
+mod.getShopItems = function(page, callback) {
+  shop.find({}).sort({publishDate: -1}).skip(page*20).limit(20).exec(function (err, docs) {
+    if (err) {
+      callback({ errorName: dbError, errorDescription: "DB Error in getShopItems"});
+    } else{
+      callback(undefined, docs);
+    }
+  });
+};
+
+// -- FIND A PARTICULAR THING IN LIST OF THINGS -- /
 mod.findPost = function(urlId, callback) {
   blog.findOne({urlId: urlId}).exec(function(err, doc){
     if (err) {
