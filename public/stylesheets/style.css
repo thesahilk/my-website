@@ -88,15 +88,18 @@ a:hover {
 
 .shopcard img {
   max-width: none; }
-.shopcard .price {
-  text-align: right; }
 .shopcard figcaption {
   padding-left: 8px;
   font-size: 1em;
-  color: #666; }
+  color: #aaa; }
 .shopcard .header {
-  border-bottom: 2px solid orange;
-  margin-bottom: 20px; }
+  margin-top: 10px; }
+  .shopcard .header .right {
+    color: #AAA;
+    text-align: right; }
+.shopcard p {
+  padding-left: 0px;
+  padding-right: 0px; }
 
 .blog-container {
   margin-top: 40px; }

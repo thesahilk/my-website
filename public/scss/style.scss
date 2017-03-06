@@ -131,18 +131,21 @@ a:hover {
   img {
     max-width: none;
   }
-  .price {
-    text-align: right;
-  }
   figcaption {
     padding-left: 8px;
     font-size: 1em;
-    color: $sub-text-color;
+    color: #aaa;
   }
   .header {
-    border-bottom: 2px solid orange;
-    margin-bottom: 20px;
-
+    margin-top: 10px;
+    .right {
+      color: #AAA;
+      text-align: right;
+    }
+  }
+  p {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 

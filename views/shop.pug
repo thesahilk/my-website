@@ -1,22 +1,24 @@
 extends header
 
 block content
-  .col-md-6.col-sm-9.intro
-    .row
-      h3 Thanks for your interest in my work. Right now, I don't have a automated-shop within my website. It will come one day, I promise.
-      h3 For now, please <a href="https://twitter.com/navarjun">tweet at me</a> or email me (navarjunsingh@gmail.com) for now.
+  .container
+    .col-md-6.col-sm-9.intro
+      .row
+        h3 Thanks for your interest in my work. Right now, I don't have a automated-shop within my website. It will come one day, I promise.
+        h3 For now, please <a href="https://twitter.com/navarjun">tweet at me</a> or email me (navarjunsingh@gmail.com) for now.
   .container.shop-container
     each item,index in items
       .row.shopcard
         .col-md-8.col-sm-12
+          .row
+            .col-xs-12
+              figure
+                img(src=""+item.imageFile, style="max-width: none;")
           .row.header
-            .col-xs-9
-              h3= item.title
-            .col-xs-2.col-xs-offset-1.price
-              h3= "$"+item.priceUSD
-          .col-xs-12
-            figure
-              img(src=""+item.imageFile, style="max-width: none;")
-              figcaption= "Dimensions: "+ item.width_cm +"x"+ item.height_cm +" cm"
-          .col-xs-12
-            p= item.description
+            .col-xs-4
+              h4= "$"+item.priceUSD
+            .col-xs-8.right
+              h4= item.width_cm +"x"+ item.height_cm +" cm"
+          .row
+            .col-xs-12
+              p= item.description
