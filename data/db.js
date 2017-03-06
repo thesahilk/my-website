@@ -51,7 +51,7 @@ mod.addPost = function(title, summary, blogFile, publishDate, tags, callback) {
       blogFile: blogFile,
       publishDate: publishDate,
       tags: tags,
-      urlId: encodeURIComponent(title.toLowerCase().replace(" ", "-")),
+      urlId: encodeURIComponent(title.toLowerCase().split(" ").join("-")),
     });
     blogDetails.save(function(err) {
       if (err) {
@@ -76,7 +76,7 @@ mod.addProject = function(title, startDate, endDate, publishDate, description, i
       imageFile: imageFile,
       blogFile: blogFile,
       tags: tags,
-      urlId: encodeURIComponent(title.toLowerCase().replace(" ", "-"))
+      urlId: encodeURIComponent(title.toLowerCase()..split(" ").join("-"))
     });
     portfolioDetails.save(function(err) {
       if (err) {
@@ -101,7 +101,7 @@ mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm,
       height_cm: height_cm,
       publishDate: publishDate,
       priceUSD: priceUSD,
-      urlId: encodeURIComponent(title.toLowerCase().replace(" ", "-"))
+      urlId: encodeURIComponent(title.toLowerCase()..split(" ").join("-"))
     });
     shopItem.save(function(err) {
       if (err) {
