@@ -76,7 +76,7 @@ mod.addProject = function(title, startDate, endDate, publishDate, description, i
       imageFile: imageFile,
       blogFile: blogFile,
       tags: tags,
-      urlId: encodeURIComponent(title.toLowerCase()..split(" ").join("-"))
+      urlId: encodeURIComponent(title.toLowerCase().split(" ").join("-"))
     });
     portfolioDetails.save(function(err) {
       if (err) {
@@ -101,7 +101,7 @@ mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm,
       height_cm: height_cm,
       publishDate: publishDate,
       priceUSD: priceUSD,
-      urlId: encodeURIComponent(title.toLowerCase()..split(" ").join("-"))
+      urlId: encodeURIComponent(title.toLowerCase().split(" ").join("-"))
     });
     shopItem.save(function(err) {
       if (err) {

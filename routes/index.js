@@ -56,7 +56,6 @@ router.get("/shop", function(req, res, next) {
 
 router.get("/writing/:urlId", function(req, res, next) {
   var urlId = req.params.urlId;
-  urlId = encodeURIComponent(urlId);
   db.findPost(urlId, function(err, post) {
     if (err) {
       res.redirect("/error");
@@ -73,7 +72,6 @@ router.get("/writing/:urlId", function(req, res, next) {
 
 router.get("/design/:urlId", function(req, res, next) {
   var urlId = req.params.urlId;
-  urlId = encodeURIComponent(urlId);
   db.findProject(urlId, function(err, project) {
     if (err) {
       res.redirect("/error");
