@@ -7,11 +7,11 @@ body {
 .nav li {
   display: table-cell !important; }
 
-.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .article-container a {
-  border-bottom: 0.15em solid orange; }
+.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .card h3 span, .shopcard h3 span, .post-container h1 span, .article-container a {
+  border-bottom: 2px solid orange; }
 
 .bottom-underline-thin, .article-container blockquote a {
-  border-bottom: 0.05em solid orange; }
+  border-bottom: 1px solid orange; }
 
 #header {
   padding: 20px;
@@ -50,34 +50,63 @@ a:hover {
 
 .intro {
   margin-top: 50px;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  font-size: 1em; }
+  @media screen and (max-width: 768px) {
+    .intro {
+      margin-bottom: 0px; }
+      .intro h3 {
+        font-size: 1.3em; } }
   .intro h3 {
     margin-top: 0.5em; }
 
-.portfolio-container {
-  margin-top: 5%; }
-  .portfolio-container p {
-    font-size: 1.33em;
-    padding: 10px; }
+.portfolio-container p, .shop-container p {
+  font-size: 1.33em;
+  padding: 10px; }
 
-.card {
+.card, .shopcard {
   margin-bottom: 40px;
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease; }
-  .card:hover {
-    box-shadow: 0px 0px 10px orange; }
+  margin-top: 20px;
+  padding: 15px 0px; }
+  .card h3, .shopcard h3 {
+    padding-left: 10px;
+    padding-top: 0px;
+    margin-top: 0px; }
+  .card p, .shopcard p {
+    font-family: 'Martel', serif;
+    font-size: 1.2em; }
+  .card img, .shopcard img {
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px; }
+    @media screen and (max-width: 768px) {
+      .card img, .shopcard img {
+        margin-bottom: 20px; } }
+
+.shopcard img {
+  max-width: none; }
+.shopcard figcaption {
+  padding-left: 8px;
+  font-size: 1em;
+  color: #aaa; }
+.shopcard .header {
+  margin-top: 10px; }
+  .shopcard .header .right {
+    color: #AAA;
+    text-align: right; }
+.shopcard p {
+  padding-left: 0px;
+  padding-right: 0px; }
 
 .blog-container {
   margin-top: 40px; }
 
 .post-container {
   margin-bottom: 50px; }
-  .post-container a {
-    text-decoration: underline; }
+  .post-container p, .post-container sub {
+    font-family: 'Martel', serif;
+    font-size: 1.2em; }
 
 .post-title {
   font-size: 1.5em;
@@ -131,7 +160,6 @@ a:hover {
       line-height: 170%; } }
 .article-container img {
   margin-top: 25px;
-  margin-bottom: 25px;
   border-radius: 6px;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   width: 100%; }
@@ -151,6 +179,9 @@ a:hover {
         line-height: 150%; } }
   .article-container blockquote a {
     color: #000; }
+.article-container img + em {
+  font-size: small;
+  color: #AAA; }
 
 .social {
   padding-top: 60px; }

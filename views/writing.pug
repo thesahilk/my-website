@@ -6,5 +6,6 @@ block content
       .col-md-7
         .post-container
           a(href="/writing/"+post.urlId)
-            h1.post-title= post.title
-          sub.post-detail= post.summary
+            h1.post-title
+              span= post.title
+            sub.post-detail= post.summary

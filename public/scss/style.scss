@@ -17,10 +17,10 @@ body {
 }
 
 .bottom-underline {
-  border-bottom: 0.15em solid $primary-color;
+  border-bottom: 2px solid $primary-color;
 }
 .bottom-underline-thin {
-  border-bottom: 0.05em solid $primary-color;
+  border-bottom: 1px solid $primary-color;
 }
 
 #header {
@@ -73,7 +73,13 @@ a:hover {
 .intro {
   margin-top: 50px;
   margin-bottom: 50px;
-
+  @media screen and (max-width: 768px) {
+    margin-bottom: 0px;
+    h3 {
+      font-size: 1.3em;
+    }
+  }
+  font-size: 1em;
   a {
     @extend .bottom-underline;
   }
@@ -83,24 +89,62 @@ a:hover {
 }
 
 // FOR PORTFOLIO //
-.portfolio-container {
-  margin-top: 5%;
+.portfolio-container, .shop-container {
   p {
     font-size: 1.33em;
     padding: 10px;
   }
 }
 
-.card {
+.card, .shopcard{
   margin-bottom: 40px;
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  &:hover {
-    box-shadow: 0px 0px 10px $primary-color;
+  margin-top: 20px;
+  padding: 15px 0px;
+  // -webkit-transition: all 0.3s ease;
+  // -moz-transition: all 0.3s ease;
+  // -o-transition: all 0.3s ease;
+  h3 {
+    padding-left: 10px;
+    padding-top: 0px;
+    margin-top: 0px;
+    span {
+      @extend .bottom-underline;
+    }
+  }
+  p {
+    font-family: 'Martel', serif;
+    font-size: 1.2em;
+  }
+  img {
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.shopcard {
+  img {
+    max-width: none;
+  }
+  figcaption {
+    padding-left: 8px;
+    font-size: 1em;
+    color: #aaa;
+  }
+  .header {
+    margin-top: 10px;
+    .right {
+      color: #AAA;
+      text-align: right;
+    }
+  }
+  p {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
@@ -111,8 +155,14 @@ a:hover {
 
 .post-container {
   margin-bottom: 50px;
-  a {
-    text-decoration: underline;
+  h1 {
+    span {
+      @extend .bottom-underline;
+    }
+  }
+  p, sub {
+    font-family: 'Martel', serif;
+    font-size: 1.2em;
   }
 }
 
@@ -175,7 +225,7 @@ a:hover {
   }
   img {
     margin-top: 25px;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
     border-radius: 6px;
     box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
     width: 100%;
@@ -200,6 +250,12 @@ a:hover {
     a {
       color: #000;
       @extend .bottom-underline-thin;
+    }
+  }
+  img {
+    + em {
+      font-size: small;
+      color: #AAA;
     }
   }
 }

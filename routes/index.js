@@ -44,9 +44,19 @@ router.get("/writing", function(req, res, next) {
   });
 });
 
+router.get("/shop", function(req, res, next) {
+  var page = req.query.page ? req.query.page : 0;
+  db.getShopItems(page, function(err, items) {
+    console.log(items[0]);
+    res.render("shop", { navbar: "shop", title: "shop | navarjun", items: items })
+  });
+});
+
+// -- DETAILS POSTS -- //
+
 router.get("/writing/:urlId", function(req, res, next) {
   var urlId = req.params.urlId;
-  urlId = encodeURIComponent(urlId);
+  urlId = encodeURIComponent(urlId.split(" ").join("-"));
   db.findPost(urlId, function(err, post) {
     if (err) {
       res.redirect("/error");
@@ -63,12 +73,11 @@ router.get("/writing/:urlId", function(req, res, next) {
 
 router.get("/design/:urlId", function(req, res, next) {
   var urlId = req.params.urlId;
-  urlId = encodeURIComponent(urlId);
+  urlId = encodeURIComponent(urlId.split(" ").join("-"));
   db.findProject(urlId, function(err, project) {
     if (err) {
       res.redirect("/error");
     } else {
-      console.log("xxxx");
       request.get(project.blogFile, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             var html = markdown.toHTML(body);
@@ -79,25 +88,28 @@ router.get("/design/:urlId", function(req, res, next) {
   });
 });
 
+// -- EDITOR THINGS -- //
 router.get("/editor", function(req, res, next) {
   res.render("editor");
 });
 
 router.post("/addPost", function(req, res, next) {
-  console.log(req.body);
   var publishDate = req.param("publishDate") ? req.param("publishDate") : (new Date()).valueOf();
   db.addPost(req.param("title"), req.param("summary"), req.param("blogFile"), publishDate, req.param("tags"));
   res.send("OK");
 });
 
 router.post("/addProject", function(req, res, next) {
-  console.log(req.body);
   var publishDate = req.param("publishDate") ? req.param("publishDate") : (new Date()).valueOf();
-  console.log(req.param("title"), req.param("startDate"), req.param("endDate"), publishDate, req.param("imageFile"), req.param("blogFile"), req.param("tags"));
-  db.addProject(req.param("title"), req.param("startDate"), req.param("endDate"), publishDate, req.param("imageFile"), req.param("blogFile"), req.param("tags"));
+  db.addProject(req.param("title"), req.param("startDate"), req.param("endDate"), publishDate, req.param("description"), req.param("imageFile"), req.param("blogFile"), req.param("tags"));
   res.send("OK");
 });
 
+router.post("/addShopItem", function(req, res, next) {
+  var publishDate = req.param("publishDate") ? req.param("publishDate") : (new Date()).valueOf();
+  db.addShopItem(req.param("title"), req.param("description"), req.param("isAvailable"), req.param("imageFile"), req.param("width_cm"), req.param("height_cm"), publishDate, req.param("priceUSD"));
+  res.send("OK");
+});
 router.get("/error", function(req, res, next) {
   res.render("error");
 });
