@@ -181,7 +181,10 @@ a:hover {
     color: #000; }
 .article-container img + em {
   font-size: small;
-  color: #AAA; }
+  color: #AAA;
+  display: inline-block;
+  line-height: 1.5;
+  margin-top: 10px; }
 
 .social {
   padding-top: 60px; }
