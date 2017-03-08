@@ -59,7 +59,8 @@ a:hover {
         font-size: 1.3em;
         line-height: 1.25; } }
   .intro h3 {
-    margin-top: 0.5em; }
+    margin-top: 0.5em;
+    line-height: 1.25; }
 
 .portfolio-container p, .shop-container p {
   font-size: 1.33em;
