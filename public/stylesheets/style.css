@@ -7,10 +7,10 @@ body {
 .nav li {
   display: table-cell !important; }
 
-.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .card h3 span, .shopcard h3 span, .post-container h1 span, .article-container a {
+.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .card h3 span, .shopcard h3 span, .card a, .shopcard a, .post-container h1 span, .article-container a {
   border-bottom: 2px solid orange; }
 
-.bottom-underline-thin, .article-container blockquote a {
+.bottom-underline-thin, .shopcard a, .article-container blockquote a {
   border-bottom: 1px solid orange; }
 
 #header {
@@ -58,6 +58,9 @@ a:hover {
       .intro h3 {
         font-size: 1.3em;
         line-height: 1.25; } }
+  .intro a {
+    display: inline-block;
+    line-height: 1; }
   .intro h3 {
     margin-top: 0.5em;
     line-height: 1.25; }
@@ -100,6 +103,11 @@ a:hover {
 .shopcard p {
   padding-left: 0px;
   padding-right: 0px; }
+.shopcard a {
+  display: inline-block;
+  line-height: 1;
+  color: #AAA;
+  font-size: 1em; }
 
 .blog-container {
   margin-top: 40px; }
@@ -166,7 +174,9 @@ a:hover {
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   width: 100%; }
 .article-container a {
-  color: #666; }
+  color: #666;
+  display: inline-block;
+  line-height: 1; }
 .article-container blockquote {
   border-left: 5px solid orange; }
   @media screen and (max-width: 768px) {
@@ -180,7 +190,9 @@ a:hover {
         font-size: 1em;
         line-height: 150%; } }
   .article-container blockquote a {
-    color: #000; }
+    color: #000;
+    display: inline-block;
+    line-height: 1; }
 .article-container img + em {
   font-size: small;
   color: #AAA;

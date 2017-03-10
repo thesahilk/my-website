@@ -19,6 +19,7 @@ body {
 .bottom-underline {
   border-bottom: 2px solid $primary-color;
 }
+
 .bottom-underline-thin {
   border-bottom: 1px solid $primary-color;
 }
@@ -83,6 +84,8 @@ a:hover {
   font-size: 1em;
   a {
     @extend .bottom-underline;
+    display: inline-block;
+    line-height: 1;
   }
   h3 {
     margin-top: 0.5em;
@@ -126,6 +129,9 @@ a:hover {
       margin-bottom: 20px;
     }
   }
+  a {
+    @extend .bottom-underline;
+  }
 }
 
 .shopcard {
@@ -147,6 +153,13 @@ a:hover {
   p {
     padding-left: 0px;
     padding-right: 0px;
+  }
+  a {
+    @extend .bottom-underline-thin;
+    display: inline-block;
+    line-height: 1;
+    color: #AAA;
+    font-size: 1em;
   }
 }
 
@@ -235,6 +248,8 @@ a:hover {
   a {
     color: $sub-text-color;
     @extend .bottom-underline;
+    display: inline-block;
+    line-height: 1;
   }
   blockquote{
     border-left: 5px solid $primary-color;
@@ -252,6 +267,8 @@ a:hover {
     a {
       color: #000;
       @extend .bottom-underline-thin;
+      display: inline-block;
+      line-height: 1;
     }
   }
   img {

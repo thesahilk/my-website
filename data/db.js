@@ -37,7 +37,8 @@ var shop = mongoose.model('Shop', {
     height_cm: Number,
     publishDate: Number,
     priceUSD: Number,
-    urlId: String
+    urlId: String,
+    process: String
   });
 
 var mod = {};
@@ -90,8 +91,8 @@ mod.addProject = function(title, startDate, endDate, publishDate, description, i
   }
 };
 
-mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm, height_cm, publishDate, priceUSD, callback) {
-  if (title && description && isAvailable && imageFile && width_cm && height_cm && publishDate && priceUSD) {
+mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm, height_cm, publishDate, priceUSD, process, callback) {
+  if (title && description && isAvailable && imageFile && width_cm && height_cm && publishDate && priceUSD && process) {
     var shopItem = new shop({
       title: title,
       description: description,
@@ -101,6 +102,7 @@ mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm,
       height_cm: height_cm,
       publishDate: publishDate,
       priceUSD: priceUSD,
+      process: process,
       urlId: encodeURIComponent(title.toLowerCase().split(" ").join("-"))
     });
     shopItem.save(function(err) {

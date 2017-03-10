@@ -39,7 +39,8 @@ $("#shop-submit").click(function() {
     width_cm: $("#shop-width").val(),
     height_cm: $("#shop-height").val(),
     publishDate: $("#shop-publishDate").val(),
-    priceUSD: $("#shop-priceUSD").val()
+    priceUSD: $("#shop-priceUSD").val(),
+    process: $("#shop-process").val()
   };
 
   $.post("/addShopItem", shopItem, function() {

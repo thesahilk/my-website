@@ -107,7 +107,7 @@ router.post("/addProject", function(req, res, next) {
 
 router.post("/addShopItem", function(req, res, next) {
   var publishDate = req.param("publishDate") ? req.param("publishDate") : (new Date()).valueOf();
-  db.addShopItem(req.param("title"), req.param("description"), req.param("isAvailable"), req.param("imageFile"), req.param("width_cm"), req.param("height_cm"), publishDate, req.param("priceUSD"));
+  db.addShopItem(req.param("title"), req.param("description"), req.param("isAvailable"), req.param("imageFile"), req.param("width_cm"), req.param("height_cm"), publishDate, req.param("priceUSD"), req.param("process"));
   res.send("OK");
 });
 router.get("/error", function(req, res, next) {
