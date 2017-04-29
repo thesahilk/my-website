@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 var username = process.env.MONGO_USER;
 var password = process.env.MONGO_PASS;
 var mongoServer = process.env.MONGO_SERVER;
-mongoose.connect('mongodb://'+username+':'+password+'@'+mongoServer+'/website?authSource=admin');
+const db = mongoose.createConnection('mongodb://'+username+':'+password+'@'+mongoServer+'/website?authSource=admin');
 console.log('mongodb://'+username+':'+password+'@'+mongoServer+'/website?authSource=admin');
 
-var blog = mongoose.model('Blog',
+var blog = db.model('Blog',
   {
     title: String,
     summary: String,
@@ -15,7 +15,7 @@ var blog = mongoose.model('Blog',
     urlId: String
   });
 
-var portfolio = mongoose.model('Portfolio',
+var portfolio = db.model('Portfolio',
   {
     title: String,
     startDate: Number,
@@ -28,7 +28,7 @@ var portfolio = mongoose.model('Portfolio',
     urlId: String
   });
 
-var shop = mongoose.model('Shop', {
+var shop = db.model('Shop', {
     title: String,
     description: String,
     isAvailable: Boolean,
