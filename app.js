@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-// var presElection = require('./routes/presidentialElection');
+var presElection = require('./routes/presidentialElection');
 
 var app = express();
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-// app.use('/pres-election', presElection);
+app.use('/pres-election', presElection);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,12 +37,14 @@ app.use(function(req, res, next) {
 // SSL HANDLER
 var env = process.env.NODE_ENV || 'development';
 var forceSsl = function (req, res, next) {
+    console.log("HEADER", req.headers['x-forwarded-proto'])
     if (req.headers['x-forwarded-proto'] !== 'https') {
         return res.redirect(['https://', req.get('Host'), req.url].join(''));
     }
     return next();
  };
 app.use(function () {
+    console.log("ENV", env);
     if (env === 'production') {
         app.use(forceSsl);
     }
