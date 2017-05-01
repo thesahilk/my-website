@@ -1,5 +1,4 @@
 var express = require('express');
-var ssl = require('express-ssl');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -8,10 +7,9 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-// var presElection = require('./routes/presidentialElection');
+var presElection = require('./routes/presidentialElection');
 
 var app = express();
-app.use(ssl());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-// app.use('/pres-election', presElection);
+app.use('/pres-election', presElection);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
