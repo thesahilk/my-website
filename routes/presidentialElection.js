@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require("../data/presidentialElectionDB");
 
 router.get("/recentFollowersData", function(req, res, _) {
+  console.log(req.hostname);
   db.getRecentFollowers(function(data) {
     let responseArray = [];
     for (let index in data) {
@@ -14,6 +15,7 @@ router.get("/recentFollowersData", function(req, res, _) {
       }
       responseArray.push(object)
     }
+    res.set("Acess-Control-Allow-Origin", "*");
     res.json({
       "data": responseArray
     });
@@ -29,6 +31,7 @@ router.get("/instagramPostsData/:username", function(req, res, next) {
 
     db.getRecentPosts(instagramUserId,
       function(result) {
+        res.set("Acess-Control-Allow-Origin", "*");
         res.json({
           "data": {
               "user": instagramUser,
