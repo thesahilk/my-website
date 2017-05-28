@@ -15,7 +15,7 @@ router.get("/recentFollowersData", function(req, res, _) {
       }
       responseArray.push(object)
     }
-    res.set("Acess-Control-Allow-Origin", "https://navarjun.github.io/");
+    res.set("Access-Control-Allow-Origin", "https://navarjun.github.io/");
     res.json({
       "data": responseArray
     });
@@ -31,7 +31,7 @@ router.get("/instagramPostsData/:username", function(req, res, next) {
 
     db.getRecentPosts(instagramUserId,
       function(result) {
-        res.set("Acess-Control-Allow-Origin", "https://navarjun.github.io/");
+        res.set("Access-Control-Allow-Origin", "https://navarjun.github.io/");
         res.json({
           "data": {
               "user": instagramUser,
