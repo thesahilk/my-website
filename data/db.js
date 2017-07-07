@@ -1,3 +1,4 @@
+var c = require('../helpers/constants');
 var mongoose = require('mongoose');
 var username = process.env.MONGO_USER;
 var password = process.env.MONGO_PASS;
@@ -117,16 +118,35 @@ mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm,
   }
 }
 
-mod.hasMorePages = function(page, callback) {
-
+// -- GET PAGES -- //
+mod.projectPages = function(page, callback) {
+  portfolio.count({}, function (err, count) {
+    if (err) {
+      callback(err);
+    } else {
+      var totalPages = Math.ceil(parseFloat(count)/c.PAGE_SIZE);
+      callback(undefined, totalPages);
+    }
+  });
 };
+
+mod.postPages = function(page, callback) {
+  blog.count({}, function (err, count) {
+    if (err) {
+      callback(err);
+    } else {
+      var totalPages = Math.ceil(parseFloat(count)/c.PAGE_SIZE);
+      callback(undefined, totalPages);
+    }
+  });
+}
 
 
 // -- GET LIST OF THINGS -- //
 mod.getPosts = function(page, callback) {
-  blog.find({}).sort({ publishDate: -1 }).skip(page*10).limit(10).exec(function (err, docs) {
+  blog.find({}).sort({ publishDate: -1 }).skip(page*c.PAGE_SIZE).limit(c.PAGE_SIZE).exec(function (err, docs) {
     if (err) {
-      callback({ errorName: dbError, errorDescription: "DB Error in getPosts"});
+      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in getPosts"});
     } else {
       callback(undefined, docs);
     }
@@ -134,9 +154,9 @@ mod.getPosts = function(page, callback) {
 };
 
 mod.getProjects = function(page, callback) {
-  portfolio.find({}).sort({ publishDate: -1 }).skip(page*20).limit(20).exec(function (err, docs) {
+  portfolio.find({}).sort({ publishDate: -1 }).skip((page-1)*c.PAGE_SIZE).limit(c.PAGE_SIZE).exec(function (err, docs) {
     if (err) {
-      callback({ errorName: dbError, errorDescription: "DB Error in getProjects"});
+      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in getProjects"});
     } else {
       callback(undefined, docs);
     }
@@ -146,7 +166,7 @@ mod.getProjects = function(page, callback) {
 mod.getShopItems = function(page, callback) {
   shop.find({}).sort({publishDate: -1}).skip(page*20).limit(20).exec(function (err, docs) {
     if (err) {
-      callback({ errorName: dbError, errorDescription: "DB Error in getShopItems"});
+      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in getShopItems"});
     } else{
       callback(undefined, docs);
     }
@@ -157,7 +177,7 @@ mod.getShopItems = function(page, callback) {
 mod.findPost = function(urlId, callback) {
   blog.findOne({urlId: urlId}).exec(function(err, doc){
     if (err) {
-      callback({ errorName: dbError, errorDescription: "DB Error in findPost"});
+      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in findPost"});
     } else {
       callback(undefined, doc);
     }
@@ -177,7 +197,7 @@ mod.findPostById = function(postId, callback) {
 mod.findProject = function(urlId, callback) {
   portfolio.findOne({urlId: urlId}).exec(function(err, doc){
     if (err) {
-      callback({ errorName: dbError, errorDescription: "DB Error in findProject"});
+      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in findProject"});
     } else {
       callback(undefined, doc);
     }

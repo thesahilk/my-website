@@ -6,9 +6,14 @@ var markdown = require('markdown').markdown;
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
-  var page = req.query.page ? req.query.page : 0;
+  var page = req.query.page ? req.query.page : 1;
   db.getProjects(page, function(err, projects) {
-    res.render("index", { navbar: "design", title: "design | navarjun", projects: projects });
+    db.projectPages(page, function(err, totalPages) {
+      if (err) {
+        totalPages = page+1;
+      }
+      res.render("index", { navbar: "design", title: "design | navarjun", projects: projects, page: page, totalPages: totalPages });
+    })
   });
 });
 
@@ -28,7 +33,7 @@ router.get("/w/:postId", function(req, res, next) {
 router.get("/d/:projectId", function(req, res, next) {
   var projectId = req.params.projectId;
   projectId = encodeURIComponent(projectId);
-  db.findProjectById(projectId, function(err, project) {
+  db.findProjectById(projectId, query, function(err, project) {
     if (err) {
       res.redirect("/error");
     } else {
@@ -38,9 +43,14 @@ router.get("/d/:projectId", function(req, res, next) {
 });
 
 router.get("/writing", function(req, res, next) {
-  var page = req.query.page ? req.query.page : 0;
+  var page = req.query.page ? req.query.page : 1;
   db.getPosts(page, function(err, posts) {
-    res.render("writing", { navbar: "writing", title: "writing | navarjun", posts: posts });
+    db.postPages(page, function(err, totalPages) {
+      if (err) {
+        totalPages = page+1;
+      }
+      res.render("writing", { navbar: "writing", title: "writing | navarjun", posts: posts, page: page, totalPages: totalPages });
+    });
   });
 });
 

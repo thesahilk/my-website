@@ -16,18 +16,6 @@ NOTE: This process has to keep running in the terminal, needs it's own terminal 
 (running with & doesn't push it to background, it still keeps logging into terminal window)
 
 
-# ABOUT DATA
-The data is stored in data folder as blog-data and portfolio-data.
-This project is using very simple DB that works based on .json files only.
-These are git ignored.
-REMEMBER: if you create any new datafile, you need to git ignore it.
-
-
-# ABOUT DEPLOYMENT
-Deploy using bitnami
-
-AWS wants files to be readable by only one user (you) and have only read permission
-> chmod 700 .privatekeys/
-
-Now I connect using
-> ssh -i ~/.privatekeys/bitnami-my-website.pem bitnami@52.14.51.154
+# About data
+The data is stored in MongoDB hosted on a different server
+The settings are defined in environment variables of server hosting this app.
