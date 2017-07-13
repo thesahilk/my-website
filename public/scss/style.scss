@@ -1,9 +1,11 @@
-$primary-color: rgb(255, 165, 0);
-$primary-color-faded: rgba(255, 165, 0, 0.8);
-$text-color: #000;
-$sub-text-color: #666;
+$primary-color: #D8D8D8;
+$primary-color-faded: #DDD;
+$text-color: #333;
+$sub-text-color: #888;
 
-$break-small: 768px;
+$break-large: 1170px;
+$break-medium: 992px;
+$break-small: 767px;
 
 body {
   padding: 0;
@@ -12,16 +14,79 @@ body {
   color: $text-color;
 }
 
-.nav li {
-  display:table-cell !important;
-}
-
-.bottom-underline {
-  border-bottom: 2px solid $primary-color;
-}
-
 .bottom-underline-thin {
-  border-bottom: 1px solid $primary-color;
+  border-bottom: 1px solid $sub-text-color;
+}
+
+.header {
+  text-align: center;
+  h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 4em;
+  }
+}
+
+.na-nav {
+  text-align: center;
+  .na-nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    * {
+      padding: 10px 20px 10px 20px;
+      color: #D8D8D8;
+    }
+    * a {
+      transition: all 0.5s;
+      font-family: 'Raleway', sans-serif;
+      @media screen and (max-width: $break-small) {
+        font-size: 0.8em;
+      }
+      font-size: 1.3em;
+    }
+    * a:hover {
+      color: #888;
+    }
+    *.active {
+      border-bottom: 3px solid #888;
+      font-weight: normal;
+      a {
+        color: #888;
+      }
+    }
+  }
+}
+
+.intro {
+  font-family: 'Raleway', sans-serif;
+  p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.3em;
+    @media screen and (max-width: $break-small) {
+      font-size: 1em;
+    }
+  }
+  a {
+    border-bottom: 1px solid $sub-text-color;
+  }
+}
+
+.shop-container {
+  padding-left: 160px;
+  padding-right: 160px;
+  @media screen and (max-width: $break-medium) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  h4 {
+    font-family: 'Noto Serif', serif;
+    color: $primary-color;
+  }
 }
 
 #header {
@@ -45,139 +110,140 @@ a:hover {
     text-decoration: none;
 }
 
-.navbar-default {
-  background: transparent;
-  box-shadow: none;
-  border: 0px;
-  .navbar-nav{
-    .active>a {
-      @extend .bottom-underline;
-      background: none;
-      background-image: none;
-      box-shadow: none;
-    }
-    li>a {
-      margin-left: 10px;
-    }
-  }
-}
-
-.navbar-brand {
-    border-bottom: 0px $primary-color solid;
-}
-
-.active {
-    background: none;
-    font-weight: bold;
-}
-
-.intro {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  @media screen and (max-width: 768px) {
-    margin-bottom: 0px;
-    h3 {
-      font-size: 1.3em;
-      line-height: 1.25;
-    }
-  }
-  font-size: 1em;
-  a {
-    @extend .bottom-underline;
-    display: inline-block;
-    line-height: 1;
-  }
-  h3 {
-    margin-top: 0.5em;
-    line-height: 1.25;
-  }
-}
-
 // FOR PORTFOLIO //
-.portfolio-container, .shop-container {
+.portfolio-container {
   p {
     font-size: 1.33em;
     padding: 10px;
   }
 }
 
-.card, .shopcard{
+.card {
+  margin-left: 160px;
+  margin-right: 160px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: $break-medium) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media screen and (max-width: $break-small) {
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .portfolio-image {
+    flex: 1;
+    max-width: 350px;
+    z-index: 1;
+    @media screen and (max-width: $break-small) {
+      max-width: none;
+      order: 1;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .portfolio-brief {
+    flex: 1.5;
+    @media screen and (max-width: $break-small) {
+      flex: 1;
+      order: 2;
+    }
+    padding-left: 25px;
+    padding-right: 25px;
+    align-self: center;
+    h3 {
+      line-height: 1.4em;
+      @media screen and (max-width: $break-small) {
+        font-size: 0.9em;
+      }
+    }
+    p {
+      @media screen and (max-width: $break-small) {
+        font-size: 0.9em;
+      }
+    }
+    h3, p {
+      padding-left: 0px;
+      margin-left: 0px;
+      padding-right: 0px;
+      margin-right: 0px;
+      font-family: 'Raleway', sans-serif;
+      color: $text-color;
+      a {
+        @extend .bottom-underline-thin;
+        font-family: 'Noto Serif', sans-serif;
+      }
+    }
+  }
+}
+
+.shopcard {
   margin-bottom: 40px;
   margin-top: 20px;
   padding: 15px 0px;
   // -webkit-transition: all 0.3s ease;
   // -moz-transition: all 0.3s ease;
   // -o-transition: all 0.3s ease;
-  h3 {
-    padding-left: 10px;
+  h4 {
     padding-top: 0px;
     margin-top: 0px;
+    font-family: 'Noto Serif', sans-serif;
+    @media screen and (max-width: $break-small) {
+      font-size: 0.9em;
+    }
     span {
-      @extend .bottom-underline;
+      @extend .bottom-underline-thin;
     }
   }
+  h4.size {
+    text-align: right;
+  }
   p {
-    font-family: 'Martel', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
+    @media screen and (max-width: $break-small) {
+      font-size: 1em;
+    }
   }
   img {
     border: 1px solid #DDD;
-    border-radius: 5px;
     width: 100%;
     max-width: 350px;
-    @media screen and (max-width: 768px) {
-      margin-bottom: 20px;
-    }
-  }
-  a {
-    @extend .bottom-underline;
-  }
-}
-
-.shopcard {
-  img {
-    max-width: none;
-  }
-  figcaption {
-    padding-left: 8px;
-    font-size: 1em;
-    color: #aaa;
-  }
-  .header {
-    margin-top: 10px;
-    .right {
-      color: #AAA;
-      text-align: right;
-    }
-  }
-  p {
-    padding-left: 0px;
-    padding-right: 0px;
+    margin-bottom: 20px;
   }
   a {
     @extend .bottom-underline-thin;
-    display: inline-block;
-    line-height: 1;
-    color: #AAA;
-    font-size: 1em;
   }
 }
 
 // FOR BLOG //
 .blog-container {
     margin-top: 40px;
+    padding-left: 240px;
+    padding-right: 160px;
+    @media screen and (max-width: $break-medium) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
 }
 
 .post-container {
   margin-bottom: 50px;
   h1 {
     span {
-      @extend .bottom-underline;
+      @extend .bottom-underline-thin;
     }
   }
   p, sub {
-    font-family: 'Martel', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
+    @media screen and (max-width: $break-small) {
+      font-size: 1em;
+    }
   }
 }
 
@@ -187,14 +253,32 @@ a:hover {
 }
 
 .post-detail {
-    font-size: 1.3em;
+  font-size: 1.3em;
+  color: $text-color;
 }
 
 .article-container {
+   > * {
+    margin-left: 200px;
+    margin-right: 200px;
+    @media screen and (max-width: $break-large) {
+      margin-left: 160px;
+      margin-right: 160px;
+    }
+    @media screen and (max-width: $break-medium) {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+    @media screen and (max-width: $break-small) {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  }
   h1 {
     font-size: 3em;
     margin-top: 60px;
     margin-bottom: 30px;
+    font-family: 'Noto Serif', serif;
     @media screen and (max-width: $break-small) {
       font-size: 2em;
       margin-top: 30px;
@@ -206,7 +290,7 @@ a:hover {
     color: $sub-text-color;
     margin-top: 60px;
     margin-bottom: 30px;
-    font-family: 'Martel', serif;
+    font-family: 'Noto Serif', serif;
     line-height: 130%;
     @media screen and (max-width: $break-small) {
       font-size: 1.5em;
@@ -219,7 +303,7 @@ a:hover {
     margin-top: 60px;
     color: $sub-text-color;
     margin-bottom: 30px;
-    font-family: 'Martel', serif;
+    font-family: 'Noto Serif', serif;
     line-height: 210%;
     @media screen and (max-width: $break-small) {
       font-size: 1.5em;
@@ -230,24 +314,29 @@ a:hover {
   }
   p {
     font-size: 1.4em;
-    line-height: 1.7em;
-    font-family: 'Martel', serif;
-    line-height: 210%;
+    font-family: 'Raleway', sans-serif;
+    line-height: 170%;
     @media screen and (max-width: $break-small) {
-      font-size: 1.25em;
-      line-height: 170%;
+      font-size: 1em;
     }
   }
   img {
     margin-top: 25px;
-    // margin-bottom: 25px;
-    border-radius: 6px;
+    margin-left: -5%;
+    margin-bottom: 15px;
     box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
-    width: 100%;
+    width: 110%;
+    + em {
+      font-size: small;
+      color: #AAA;
+      display: inline-block;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
   }
   a {
-    color: $sub-text-color;
-    @extend .bottom-underline;
+    color: $text-color;
+    @extend .bottom-underline-thin;
     display: inline-block;
     line-height: 1;
   }
@@ -265,19 +354,10 @@ a:hover {
       }
     }
     a {
-      color: #000;
+      color: $sub-text-color;
       @extend .bottom-underline-thin;
       display: inline-block;
       line-height: 1;
-    }
-  }
-  img {
-    + em {
-      font-size: small;
-      color: #AAA;
-      display: inline-block;
-      line-height: 1.5;
-      margin-top: 10px;
     }
   }
 }

@@ -1,0 +1,9 @@
+{
+    "extends": "standard",
+    "rules": {
+        "semi": [1, "always"],
+        "no-unused-vars": [1, "all"],
+        "no-cond-assign": [1, "except-parens"],
+        "quotes": [0, "double"]
+    }
+}

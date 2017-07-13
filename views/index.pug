@@ -1,20 +1,24 @@
 extends header
 
 block content
-  .container
-    .col-md-6.col-sm-9.intro
-      .row
-        h3 I am an designer.
-        h3 I currently teach and study at <br/>Northeastern University in Boston.
-        h3 In my free time,<br/> I like to do <a href="http://500px.com/navarjun">photography</a> & <a href="http://goodreads.com/navarjun">read</a>.
   .container.portfolio-container
     each project,index in projects
       .row
-        .col-md-8.card
-          a(href="/design/"+project.urlId)
-            .col-sm-4
-              img(src=""+project.imageFile)
-            .col-sm-8
+        if index%2 == 0
+          .card  
+            .portfolio-image
+              a(href="/design/"+project.urlId)
+                img(src=""+project.imageFile)
+            .portfolio-brief
               h3
-                span= project.title
+                a(href="/design/"+project.urlId)= project.title
               p= project.description
+        else
+          .card 
+            .portfolio-brief
+              h3
+                a(href="/design/"+project.urlId)= project.title
+              p= project.description
+            .portfolio-image
+              a(href="/design/"+project.urlId)
+                img(src=""+project.imageFile)

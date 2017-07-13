@@ -3,44 +3,42 @@ var mongoose = require('mongoose');
 var username = process.env.MONGO_USER;
 var password = process.env.MONGO_PASS;
 var mongoServer = process.env.MONGO_SERVER;
-const db = mongoose.createConnection('mongodb://'+username+':'+password+'@'+mongoServer+'/website?authSource=admin');
-console.log('mongodb://'+username+':'+password+'@'+mongoServer+'/website?authSource=admin');
+const db = mongoose.createConnection('mongodb://' + username + ':' + password + '@' + mongoServer + '/website?authSource=admin');
+console.log('mongodb://' + username + ':' + password + '@' + mongoServer + '/website?authSource=admin');
 
-var blog = db.model('Blog',
-  {
-    title: String,
-    summary: String,
-    blogFile: String,
-    publishDate: Number,
-    tags: String,
-    urlId: String
-  });
+var blog = db.model('Blog', {
+  title: String,
+  summary: String,
+  blogFile: String,
+  publishDate: Number,
+  tags: String,
+  urlId: String
+});
 
-var portfolio = db.model('Portfolio',
-  {
-    title: String,
-    startDate: Number,
-    endDate: Number,
-    publishDate: Number,
-    description: String,
-    imageFile: String,
-    blogFile: String,
-    tags: String,
-    urlId: String
-  });
+var portfolio = db.model('Portfolio', {
+  title: String,
+  startDate: Number,
+  endDate: Number,
+  publishDate: Number,
+  description: String,
+  imageFile: String,
+  blogFile: String,
+  tags: String,
+  urlId: String
+});
 
 var shop = db.model('Shop', {
-    title: String,
-    description: String,
-    isAvailable: Boolean,
-    imageFile: String,
-    width_cm: Number,
-    height_cm: Number,
-    publishDate: Number,
-    priceUSD: Number,
-    urlId: String,
-    process: String
-  });
+  title: String,
+  description: String,
+  isAvailable: Boolean,
+  imageFile: String,
+  width_cm: Number,
+  height_cm: Number,
+  publishDate: Number,
+  priceUSD: Number,
+  urlId: String,
+  process: String
+});
 
 var mod = {};
 
@@ -120,43 +118,54 @@ mod.addShopItem = function(title, description, isAvailable, imageFile, width_cm,
 
 // -- GET PAGES -- //
 mod.projectPages = function(page, callback) {
-  portfolio.count({}, function (err, count) {
+  portfolio.count({}, function(err, count) {
     if (err) {
       callback(err);
     } else {
-      var totalPages = Math.ceil(parseFloat(count)/c.PAGE_SIZE);
+      var totalPages = Math.ceil(parseFloat(count) / c.PAGE_SIZE);
       callback(undefined, totalPages);
     }
   });
 };
 
 mod.postPages = function(page, callback) {
-  blog.count({}, function (err, count) {
+  blog.count({}, function(err, count) {
     if (err) {
       callback(err);
     } else {
-      var totalPages = Math.ceil(parseFloat(count)/c.PAGE_SIZE);
+      var totalPages = Math.ceil(parseFloat(count) / c.PAGE_SIZE);
       callback(undefined, totalPages);
     }
   });
-}
+};
 
 
 // -- GET LIST OF THINGS -- //
-mod.getPosts = function(page, callback) {
-  blog.find({}).sort({ publishDate: -1 }).skip(page*c.PAGE_SIZE).limit(c.PAGE_SIZE).exec(function (err, docs) {
+mod.getPosts = function (page, callback) {
+  console.log(page * c.PAGE_SIZE);
+  blog.find({}).sort({
+    publishDate: -1
+  }).skip((page-1) * c.PAGE_SIZE).limit(c.PAGE_SIZE).exec(function (err, docs) {
     if (err) {
-      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in getPosts"});
+      callback({
+        errorName: c.DB_ERROR,
+        errorDescription: "DB Error in getPosts"
+      });
     } else {
-      callback(undefined, docs);
+      callback(null, docs);
     }
   });
 };
 
 mod.getProjects = function(page, callback) {
-  portfolio.find({}).sort({ publishDate: -1 }).skip((page-1)*c.PAGE_SIZE).limit(c.PAGE_SIZE).exec(function (err, docs) {
+  portfolio.find({}).sort({
+    publishDate: -1
+  }).skip((page - 1) * c.PAGE_SIZE).limit(c.PAGE_SIZE).exec(function(err, docs) {
     if (err) {
-      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in getProjects"});
+      callback({
+        errorName: c.DB_ERROR,
+        errorDescription: "DB Error in getProjects"
+      });
     } else {
       callback(undefined, docs);
     }
@@ -164,10 +173,15 @@ mod.getProjects = function(page, callback) {
 };
 
 mod.getShopItems = function(page, callback) {
-  shop.find({}).sort({publishDate: -1}).skip(page*20).limit(20).exec(function (err, docs) {
+  shop.find({}).sort({
+    publishDate: -1
+  }).skip(page * 20).limit(20).exec(function(err, docs) {
     if (err) {
-      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in getShopItems"});
-    } else{
+      callback({
+        errorName: c.DB_ERROR,
+        errorDescription: "DB Error in getShopItems"
+      });
+    } else {
       callback(undefined, docs);
     }
   });
@@ -175,9 +189,14 @@ mod.getShopItems = function(page, callback) {
 
 // -- FIND A PARTICULAR THING IN LIST OF THINGS -- /
 mod.findPost = function(urlId, callback) {
-  blog.findOne({urlId: urlId}).exec(function(err, doc){
+  blog.findOne({
+    urlId: urlId
+  }).exec(function(err, doc) {
     if (err) {
-      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in findPost"});
+      callback({
+        errorName: c.DB_ERROR,
+        errorDescription: "DB Error in findPost"
+      });
     } else {
       callback(undefined, doc);
     }
@@ -195,9 +214,14 @@ mod.findPostById = function(postId, callback) {
 };
 
 mod.findProject = function(urlId, callback) {
-  portfolio.findOne({urlId: urlId}).exec(function(err, doc){
+  portfolio.findOne({
+    urlId: urlId
+  }).exec(function(err, doc) {
     if (err) {
-      callback({ errorName: c.DB_ERROR, errorDescription: "DB Error in findProject"});
+      callback({
+        errorName: c.DB_ERROR,
+        errorDescription: "DB Error in findProject"
+      });
     } else {
       callback(undefined, doc);
     }

@@ -10,40 +10,42 @@ html
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
     link(href="https://fonts.googleapis.com/css?family=Gentium+Basic",rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Martel:300|Sahitya",rel="stylesheet")
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Raleway:500|Noto+Serif" rel="stylesheet">
     link(rel="stylesheet", href="/stylesheets/style.css")
     script(type="text/javascript", src="/javascripts/index.js")
 
   body
     #fb-root
-    nav.nav.navbar-default
-      .container
-        .navbar-header
-          a.navbar-brand(href="/") navarjun
-
+    div.container
+      div.row.header
+        h1
+          a(href="/") navarjun
+      div.row.na-nav
         if (navbar == "design")
-          ul.nav.navbar-nav.navbar-right
-              li.active
-                a(href="/") design
-              li
-                a(href="/writing") writing
-              li
-                a(href="/shop") shop
+          div.na-nav-container
+            div.active
+              a(href="/") design
+            div
+              a(href="/writing") writing
+            div
+              a(href="/shop") shop
         else if (navbar == "writing")
-          ul.nav.navbar-nav.navbar-right
-              li
-                a(href="/") design
-              li.active
-                a(href="/writing") writing
-              li
-                a(href="/shop") shop
+          div.na-nav-container
+            div
+              a(href="/") design
+            div.active
+              a(href="/writing") writing
+            div
+              a(href="/shop") shop
         else if (navbar == "shop")
-          ul.nav.navbar-nav.navbar-right
-              li
-                a(href="/") design
-              li
-                a(href="/writing") writing
-              li.active
-                a(href="/shop") shop
+          div.na-nav-container
+            div
+              a(href="/") design
+            div
+              a(href="/writing") writing
+            div.active
+              a(href="/shop") shop
+        
     .container
       block content
 

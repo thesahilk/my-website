@@ -2,16 +2,67 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Lucida Grande";
-  color: #000; }
+  color: #333; }
 
-.nav li {
-  display: table-cell !important; }
+.bottom-underline-thin, .card .portfolio-brief h3 a, .card .portfolio-brief p a, .shopcard h4 span, .shopcard a, .post-container h1 span, .article-container a, .article-container blockquote a {
+  border-bottom: 1px solid #888; }
 
-.bottom-underline, .navbar-default .navbar-nav .active > a, .intro a, .card h3 span, .shopcard h3 span, .card a, .shopcard a, .post-container h1 span, .article-container a {
-  border-bottom: 2px solid orange; }
+.header {
+  text-align: center; }
+  .header h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 4em; }
 
-.bottom-underline-thin, .shopcard a, .article-container blockquote a {
-  border-bottom: 1px solid orange; }
+.na-nav {
+  text-align: center; }
+  .na-nav .na-nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+    margin-top: 30px;
+    margin-bottom: 50px; }
+    .na-nav .na-nav-container * {
+      padding: 10px 20px 10px 20px;
+      color: #D8D8D8; }
+    .na-nav .na-nav-container * a {
+      transition: all 0.5s;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.3em; }
+      @media screen and (max-width: 767px) {
+        .na-nav .na-nav-container * a {
+          font-size: 0.8em; } }
+    .na-nav .na-nav-container * a:hover {
+      color: #888; }
+    .na-nav .na-nav-container *.active {
+      border-bottom: 3px solid #888;
+      font-weight: normal; }
+      .na-nav .na-nav-container *.active a {
+        color: #888; }
+
+.intro {
+  font-family: 'Raleway', sans-serif; }
+  .intro p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.3em; }
+    @media screen and (max-width: 767px) {
+      .intro p {
+        font-size: 1em; } }
+  .intro a {
+    border-bottom: 1px solid #888; }
+
+.shop-container {
+  padding-left: 160px;
+  padding-right: 160px; }
+  @media screen and (max-width: 992px) {
+    .shop-container {
+      padding-left: 30px;
+      padding-right: 30px; } }
+  .shop-container h4 {
+    font-family: 'Noto Serif', serif;
+    color: #D8D8D8; }
 
 #header {
   padding: 20px;
@@ -25,123 +76,152 @@ li > a {
   text-decoration: none; }
 
 a:visited, a:link {
-  color: #000; }
+  color: #333; }
 
 a:hover {
   text-decoration: none; }
 
-.navbar-default {
-  background: transparent;
-  box-shadow: none;
-  border: 0px; }
-  .navbar-default .navbar-nav .active > a {
-    background: none;
-    background-image: none;
-    box-shadow: none; }
-  .navbar-default .navbar-nav li > a {
-    margin-left: 10px; }
-
-.navbar-brand {
-  border-bottom: 0px orange solid; }
-
-.active {
-  background: none;
-  font-weight: bold; }
-
-.intro {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-size: 1em; }
-  @media screen and (max-width: 768px) {
-    .intro {
-      margin-bottom: 0px; }
-      .intro h3 {
-        font-size: 1.3em;
-        line-height: 1.25; } }
-  .intro a {
-    display: inline-block;
-    line-height: 1; }
-  .intro h3 {
-    margin-top: 0.5em;
-    line-height: 1.25; }
-
-.portfolio-container p, .shop-container p {
+.portfolio-container p {
   font-size: 1.33em;
   padding: 10px; }
 
-.card, .shopcard {
+.card {
+  margin-left: 160px;
+  margin-right: 160px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between; }
+  @media screen and (max-width: 992px) {
+    .card {
+      margin-left: 20px;
+      margin-right: 20px; } }
+  @media screen and (max-width: 767px) {
+    .card {
+      flex-direction: column;
+      padding-left: 30px;
+      padding-right: 30px; } }
+  .card .portfolio-image {
+    flex: 1;
+    max-width: 350px;
+    z-index: 1; }
+    @media screen and (max-width: 767px) {
+      .card .portfolio-image {
+        max-width: none;
+        order: 1; } }
+    .card .portfolio-image img {
+      width: 100%; }
+  .card .portfolio-brief {
+    flex: 1.5;
+    padding-left: 25px;
+    padding-right: 25px;
+    align-self: center; }
+    @media screen and (max-width: 767px) {
+      .card .portfolio-brief {
+        flex: 1;
+        order: 2; } }
+    .card .portfolio-brief h3 {
+      line-height: 1.4em; }
+      @media screen and (max-width: 767px) {
+        .card .portfolio-brief h3 {
+          font-size: 0.9em; } }
+    @media screen and (max-width: 767px) {
+      .card .portfolio-brief p {
+        font-size: 0.9em; } }
+    .card .portfolio-brief h3, .card .portfolio-brief p {
+      padding-left: 0px;
+      margin-left: 0px;
+      padding-right: 0px;
+      margin-right: 0px;
+      font-family: 'Raleway', sans-serif;
+      color: #333; }
+      .card .portfolio-brief h3 a, .card .portfolio-brief p a {
+        font-family: 'Noto Serif', sans-serif; }
+
+.shopcard {
   margin-bottom: 40px;
   margin-top: 20px;
   padding: 15px 0px; }
-  .card h3, .shopcard h3 {
-    padding-left: 10px;
+  .shopcard h4 {
     padding-top: 0px;
-    margin-top: 0px; }
-  .card p, .shopcard p {
-    font-family: 'Martel', serif;
-    font-size: 1.2em; }
-  .card img, .shopcard img {
-    border: 1px solid #DDD;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 350px; }
-    @media screen and (max-width: 768px) {
-      .card img, .shopcard img {
-        margin-bottom: 20px; } }
-
-.shopcard img {
-  max-width: none; }
-.shopcard figcaption {
-  padding-left: 8px;
-  font-size: 1em;
-  color: #aaa; }
-.shopcard .header {
-  margin-top: 10px; }
-  .shopcard .header .right {
-    color: #AAA;
+    margin-top: 0px;
+    font-family: 'Noto Serif', sans-serif; }
+    @media screen and (max-width: 767px) {
+      .shopcard h4 {
+        font-size: 0.9em; } }
+  .shopcard h4.size {
     text-align: right; }
-.shopcard p {
-  padding-left: 0px;
-  padding-right: 0px; }
-.shopcard a {
-  display: inline-block;
-  line-height: 1;
-  color: #AAA;
-  font-size: 1em; }
+  .shopcard p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2em; }
+    @media screen and (max-width: 767px) {
+      .shopcard p {
+        font-size: 1em; } }
+  .shopcard img {
+    border: 1px solid #DDD;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px; }
 
 .blog-container {
-  margin-top: 40px; }
+  margin-top: 40px;
+  padding-left: 240px;
+  padding-right: 160px; }
+  @media screen and (max-width: 992px) {
+    .blog-container {
+      padding-left: 20px;
+      padding-right: 20px; } }
 
 .post-container {
   margin-bottom: 50px; }
   .post-container p, .post-container sub {
-    font-family: 'Martel', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.2em; }
+    @media screen and (max-width: 767px) {
+      .post-container p, .post-container sub {
+        font-size: 1em; } }
 
 .post-title {
   font-size: 1.5em;
   font-weight: lighter; }
 
 .post-detail {
-  font-size: 1.3em; }
+  font-size: 1.3em;
+  color: #333; }
 
+.article-container > * {
+  margin-left: 200px;
+  margin-right: 200px; }
+  @media screen and (max-width: 1170px) {
+    .article-container > * {
+      margin-left: 160px;
+      margin-right: 160px; } }
+  @media screen and (max-width: 992px) {
+    .article-container > * {
+      margin-left: 30px;
+      margin-right: 30px; } }
+  @media screen and (max-width: 767px) {
+    .article-container > * {
+      margin-left: 30px;
+      margin-right: 30px; } }
 .article-container h1 {
   font-size: 3em;
   margin-top: 60px;
-  margin-bottom: 30px; }
-  @media screen and (max-width: 768px) {
+  margin-bottom: 30px;
+  font-family: 'Noto Serif', serif; }
+  @media screen and (max-width: 767px) {
     .article-container h1 {
       font-size: 2em;
       margin-top: 30px;
       margin-bottom: 15px;
       line-height: 160%; } }
 .article-container h2 {
-  color: #666;
+  color: #888;
   margin-top: 60px;
   margin-bottom: 30px;
-  font-family: 'Martel', serif;
+  font-family: 'Noto Serif', serif;
   line-height: 130%; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .article-container h2 {
       font-size: 1.5em;
       margin-top: 30px;
@@ -149,11 +229,11 @@ a:hover {
       line-height: 140%; } }
 .article-container h3 {
   margin-top: 60px;
-  color: #666;
+  color: #888;
   margin-bottom: 30px;
-  font-family: 'Martel', serif;
+  font-family: 'Noto Serif', serif;
   line-height: 210%; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .article-container h3 {
       font-size: 1.5em;
       line-height: 140%;
@@ -161,44 +241,43 @@ a:hover {
       margin-bottom: 15px; } }
 .article-container p {
   font-size: 1.4em;
-  line-height: 1.7em;
-  font-family: 'Martel', serif;
-  line-height: 210%; }
-  @media screen and (max-width: 768px) {
+  font-family: 'Raleway', sans-serif;
+  line-height: 170%; }
+  @media screen and (max-width: 767px) {
     .article-container p {
-      font-size: 1.25em;
-      line-height: 170%; } }
+      font-size: 1em; } }
 .article-container img {
   margin-top: 25px;
-  border-radius: 6px;
+  margin-left: -5%;
+  margin-bottom: 15px;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-  width: 100%; }
+  width: 110%; }
+  .article-container img + em {
+    font-size: small;
+    color: #AAA;
+    display: inline-block;
+    line-height: 1.5;
+    margin-top: 10px; }
 .article-container a {
-  color: #666;
+  color: #333;
   display: inline-block;
   line-height: 1; }
 .article-container blockquote {
-  border-left: 5px solid orange; }
-  @media screen and (max-width: 768px) {
+  border-left: 5px solid #D8D8D8; }
+  @media screen and (max-width: 767px) {
     .article-container blockquote {
-      border-left: 2px solid orange; } }
+      border-left: 2px solid #D8D8D8; } }
   .article-container blockquote p {
     font-size: 1.2em;
-    color: #666; }
-    @media screen and (max-width: 768px) {
+    color: #888; }
+    @media screen and (max-width: 767px) {
       .article-container blockquote p {
         font-size: 1em;
         line-height: 150%; } }
   .article-container blockquote a {
-    color: #000;
+    color: #888;
     display: inline-block;
     line-height: 1; }
-.article-container img + em {
-  font-size: small;
-  color: #AAA;
-  display: inline-block;
-  line-height: 1.5;
-  margin-top: 10px; }
 
 .social {
   padding-top: 60px; }
