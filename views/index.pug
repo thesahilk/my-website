@@ -22,3 +22,16 @@ block content
             .portfolio-image
               a(href="/design/"+project.urlId)
                 img(src=""+project.imageFile)
+      
+    .row
+      .portfolio-container
+        .paging-container
+          .previous
+            if prevPage
+              a(href="/?page="+prevPage) Previous
+          .current
+            span #{currPage}/#{totalPages}
+          .next
+            if nextPage
+              a(href="/?page="+nextPage) Next
+    

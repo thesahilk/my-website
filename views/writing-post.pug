@@ -1,9 +1,8 @@
 extends header
 
 block content
-  .article-container
     .row
-      .col-md-12!= post
+      .article-container!= post
         .social
           p
             a.twitter-share-button(href="https://twitter.com/intent/tweet?text=Great thoughts!&url="+url+"&via=Navarjun"

@@ -17,13 +17,20 @@ router.get("/", function (req, res) {
       if (err) {
         totalPages = page + 1;
       }
-      res.render("index", {
+      const obj = {
         navbar: "design",
         title: "design | navarjun",
         projects: projects,
-        page: page,
+        currPage: page,
         totalPages: totalPages
-      });
+      };
+      if (page < totalPages) {
+        obj.nextPage = page + 1;
+      }
+      if (page > 1) {
+        obj.prevPage = page - 1;
+      }
+      res.render("index", obj);
     });
   });
 });
@@ -64,13 +71,20 @@ router.get("/writing", function (req, res) {
       if (err) {
         totalPages = page + 1;
       }
-      res.render("writing", {
+      const obj = {
         navbar: "writing",
         title: "writing | navarjun",
         posts: posts,
-        page: page,
+        currPage: page,
         totalPages: totalPages
-      });
+      };
+      if (page < totalPages) {
+        obj.nextPage = page + 1;
+      }
+      if (page > 1) {
+        obj.prevPage = page - 1;
+      }
+      res.render("writing", obj);
     });
   });
 });
