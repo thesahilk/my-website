@@ -34,6 +34,9 @@ body {
     .na-nav .na-nav-container * {
       padding: 10px 20px 10px 20px;
       color: #D8D8D8; }
+      @media screen and (max-width: 767px) {
+        .na-nav .na-nav-container * {
+          padding: 2px 5px 2px 5px; } }
     .na-nav .na-nav-container * a {
       transition: all 0.5s;
       font-family: 'Raleway', sans-serif;

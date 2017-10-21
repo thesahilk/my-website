@@ -46,6 +46,9 @@ body {
     }
     * {
       padding: 10px 20px 10px 20px;
+      @media screen and (max-width: $break-small) {
+        padding: 2px 5px 2px 5px;
+      }
       color: #D8D8D8;
     }
     * a {
