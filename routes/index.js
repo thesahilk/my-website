@@ -4,6 +4,7 @@ var db = require("../data/db");
 var request = require("request");
 // var markdown = require("markdown").markdown;
 var mdBlocks = require("markdown-blocks");
+var NOTICE = process.env.NOTICE;
 
 /* GET home page. */
 router.get("/", function (req, res) {
@@ -24,6 +25,9 @@ router.get("/", function (req, res) {
         currPage: page,
         totalPages: totalPages
       };
+      if (NOTICE) {
+        obj["notice"] = NOTICE;
+      }
       if (page < totalPages) {
         obj.nextPage = page + 1;
       }
