@@ -21,30 +21,15 @@ html
         h1
           a(href="/") navarjun
       div.row.na-nav
-        if (navbar == "design")
-          div.na-nav-container
-            div.active
-              a(href="/") work
-            div
-              a(href="https://medium.com/navarjun") blog
-            div
-                a(href="https://instagram.com/navarjun_calligraphy") calligraphy
-            div
-                a(href="https://instagram.com/navarjun") photography
-            //- div
-            //-   a(href="/shop") shop
-        else if (navbar == "shop")
-          div.na-nav-container
-            div
-                a(href="/") work
-            div
-                a(href="https://medium.com/navarjun") blog
-            div
-                a(href="https://instagram.com/navarjun_calligraphy") calligraphy
-            div
-                a(href="https://instagram.com/navarjun") photography
-            //- div.active
-            //-     a(href="/shop") shop
+        div.na-nav-container
+          div(class= (navbar=='design' ? 'active' : ''))
+            a(href="/") work
+          div(class= (navbar=='blog' ? 'active' : ''))
+            a(href="/blog") blog
+          div
+              a(href="https://instagram.com/navarjun_calligraphy") calligraphy
+          div
+              a(href="https://instagram.com/navarjun") photography
         
     .container-fluid
       block content

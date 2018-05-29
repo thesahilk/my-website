@@ -15,7 +15,7 @@ var blog = db.model('Blog', new mongoose.Schema({
   summary: String,
   blogFile: String,
   publishDate: Number,
-  tags: String,
+  tags: [String],
   urlId: String
 }, {timestamps: true})
 );
@@ -28,7 +28,7 @@ var portfolio = db.model('Portfolio', new mongoose.Schema({
   description: String,
   imageFile: String,
   blogFile: String,
-  tags: String,
+  tags: [String],
   urlId: String
 }, {timestamps: true})
 );
@@ -56,7 +56,7 @@ mod.addPost = function (title, summary, blogFile, publishDate, tags, callback) {
       summary: summary,
       blogFile: blogFile,
       publishDate: publishDate,
-      tags: tags,
+      tags: tags ? tags.split(',') : [],
       urlId: encodeURIComponent(title.toLowerCase().split(" ").join("-"))
     });
     blogDetails.save(function (err) {
@@ -81,7 +81,7 @@ mod.addProject = function (title, startDate, endDate, publishDate, description, 
       description: description,
       imageFile: imageFile,
       blogFile: blogFile,
-      tags: tags,
+      tags: tags ? tags.split(',') : [],
       urlId: encodeURIComponent(title.toLowerCase().split(" ").join("-"))
     });
     portfolioDetails.save(function (err) {
