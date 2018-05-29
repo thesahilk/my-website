@@ -47,7 +47,7 @@ router.get("/w/:postId", function (req, res) {
     if (err) {
       res.redirect("/error");
     } else {
-      res.redirect("/writing/" + post.urlId);
+      res.redirect("/blog/" + post.urlId);
     }
   });
 });
@@ -64,7 +64,7 @@ router.get("/d/:projectId", function (req, res) {
   });
 });
 
-router.get("/writing", function (req, res) {
+router.get("/blog", function (req, res) {
   var page = req.query.page ? req.query.page : 1;
   db.getPosts(page, function (err, posts) {
     if (err) {
@@ -76,8 +76,8 @@ router.get("/writing", function (req, res) {
         totalPages = page + 1;
       }
       const obj = {
-        navbar: "writing",
-        title: "writing | navarjun",
+        navbar: "blog",
+        title: "blog | navarjun",
         posts: posts,
         currPage: page,
         totalPages: totalPages
@@ -88,7 +88,7 @@ router.get("/writing", function (req, res) {
       if (page > 1) {
         obj.prevPage = page - 1;
       }
-      res.render("writing", obj);
+      res.render("blog", obj);
     });
   });
 });
@@ -111,7 +111,7 @@ router.get("/shop", function (req, res) {
 
 // -- DETAILS POSTS -- //
 
-router.get("/writing/:urlId", function (req, res) {
+router.get("/blog/:urlId", function (req, res) {
   var urlId = req.params.urlId;
   urlId = encodeURIComponent(urlId.split(" ").join("-"));
   db.findPost(urlId, function (err, post) {
@@ -125,7 +125,7 @@ router.get("/writing/:urlId", function (req, res) {
             navbar: "writing",
             title: post.title + " | navarjun",
             post: html,
-            url: "http://navarjun.com/writing/" + urlId,
+            url: "http://navarjun.com/blog/" + urlId,
             params: post
           });
         }
