@@ -27,13 +27,14 @@ block content
       .portfolio-container
         if notice
           h4= notice
-        .paging-container
-          .previous
-            if prevPage
-              a(href="/?page="+prevPage) Previous
-          .current
-            span #{currPage}/#{totalPages}
-          .next
-            if nextPage
-              a(href="/?page="+nextPage) Next
+        if totalPages > 1
+          .paging-container
+            .previous
+              if prevPage
+                a(href="/?page="+prevPage) Previous
+            .current
+              span #{currPage}/#{totalPages}
+            .next
+              if nextPage
+                a(href="/?page="+nextPage) Next
     
