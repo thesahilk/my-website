@@ -146,8 +146,12 @@ a:hover {
   }
   @media screen and (max-width: $break-small) {
     flex-direction: column;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 5px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-bottom: 5px;
   }
   .portfolio-image {
     flex: 1;
@@ -160,7 +164,7 @@ a:hover {
     img {
       width: 100%;
       border-radius: 5%;
-      box-shadow: 3px 3px 15px $primary-color-faded;
+      box-shadow: -1px 1px 15px $primary-color-faded;
     }
   }
   .portfolio-brief {
@@ -168,6 +172,8 @@ a:hover {
     @media screen and (max-width: $break-small) {
       flex: 1;
       order: 2;
+      padding-left: 0px;
+      padding-right: 0px;
     }
     padding-left: 25px;
     padding-right: 25px;
@@ -253,10 +259,17 @@ a:hover {
   margin-bottom: 50px;
   padding-bottom: 40px;
   border-bottom: 1px solid $primary-color-faded;
+  @media screen and (max-width: $break-small){
+    margin-bottom: 0px;
+    padding-bottom: 25px;
+  }
   h1.post-title {
     font-family: $strong-font;
     font-weight: 900;
     font-size: 3em;
+    @media screen and (max-width: $break-small) {
+      font-size: 2em;
+    }
   }
   p, sub {
     font-family: $light-font, sans-serif;

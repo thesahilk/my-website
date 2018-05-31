@@ -111,8 +111,12 @@ a:hover {
   @media screen and (max-width: 767px) {
     .card {
       flex-direction: column;
-      padding-left: 30px;
-      padding-right: 30px; } }
+      padding-left: 0px;
+      padding-right: 0px;
+      margin: 5px;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      padding-bottom: 5px; } }
   .card .portfolio-image {
     flex: 1;
     max-width: 350px;
@@ -124,7 +128,7 @@ a:hover {
     .card .portfolio-image img {
       width: 100%;
       border-radius: 5%;
-      box-shadow: 3px 3px 15px #DDD; }
+      box-shadow: -1px 1px 15px #DDD; }
   .card .portfolio-brief {
     flex: 1.5;
     padding-left: 25px;
@@ -133,7 +137,9 @@ a:hover {
     @media screen and (max-width: 767px) {
       .card .portfolio-brief {
         flex: 1;
-        order: 2; } }
+        order: 2;
+        padding-left: 0px;
+        padding-right: 0px; } }
     .card .portfolio-brief h3 {
       line-height: 1.4em; }
       @media screen and (max-width: 767px) {
@@ -192,10 +198,17 @@ a:hover {
   margin-bottom: 50px;
   padding-bottom: 40px;
   border-bottom: 1px solid #DDD; }
+  @media screen and (max-width: 767px) {
+    .post-container {
+      margin-bottom: 0px;
+      padding-bottom: 25px; } }
   .post-container h1.post-title {
     font-family: "Alegreya";
     font-weight: 900;
     font-size: 3em; }
+    @media screen and (max-width: 767px) {
+      .post-container h1.post-title {
+        font-size: 2em; } }
   .post-container p, .post-container sub {
     font-family: "Raleway", sans-serif;
     font-size: 1.2em; }
