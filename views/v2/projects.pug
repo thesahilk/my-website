@@ -1,0 +1,13 @@
+extends header
+
+block content
+    #projects-container.row
+        for val in projects
+            .project-container(style='background: rgb('+val.rgb.join(',')+')')
+                .project-card
+                    .image-container
+                        img(src= val.imageFile)
+                    .description-container
+                        a(href= '/blog/'+val.slug, style='background: rgba('+val.rgb.join(',')+', 0.5)')
+                            h1= val.title
+                            p= val.description

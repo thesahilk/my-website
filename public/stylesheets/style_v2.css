@@ -1,0 +1,177 @@
+body, html {
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  font-family: "Raleway", sans-serif; }
+
+h1 {
+  font-family: "Alegreya", "serif" !important; }
+
+#website-container {
+  padding-top: 56px; }
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 100; }
+
+#about-container {
+  display: flex;
+  height: 100vh; }
+  #about-container .about-photo {
+    flex: 1;
+    height: 100%;
+    width: 50%;
+    background: url("../public/pic.JPG");
+    background-size: cover;
+    background-position-y: 100%;
+    background-position-x: 50%; }
+  #about-container .about-description {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    flex: 1; }
+    #about-container .about-description div {
+      flex: 1;
+      margin-left: 10%;
+      margin-right: 10%; }
+      #about-container .about-description div h1 {
+        font-family: "Alegreya", serif; }
+
+#projects-container div.project-container {
+  height: 100vh;
+  background: #242328;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex; }
+  @media screen and (max-width: 768px) {
+    #projects-container div.project-container {
+      height: auto;
+      padding-top: 30px;
+      padding-bottom: 30px; } }
+  #projects-container div.project-container div.project-card {
+    color: white;
+    height: 70%;
+    max-width: 100%;
+    position: relative;
+    width: 1200px; }
+    @media screen and (max-width: 1200px) {
+      #projects-container div.project-container div.project-card {
+        width: 800px; } }
+    @media screen and (max-width: 992px) {
+      #projects-container div.project-container div.project-card {
+        width: 600px; } }
+    @media screen and (max-width: 768px) {
+      #projects-container div.project-container div.project-card {
+        width: 500px;
+        height: auto; } }
+    @media screen and (max-width: 576px) {
+      #projects-container div.project-container div.project-card {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px; } }
+    #projects-container div.project-container div.project-card div.image-container {
+      height: 100%;
+      float: left; }
+      @media screen and (max-width: 768px) {
+        #projects-container div.project-container div.project-card div.image-container {
+          float: none;
+          width: 100%; } }
+      #projects-container div.project-container div.project-card div.image-container img {
+        height: 100%;
+        max-width: 100%; }
+        @media screen and (max-width: 768px) {
+          #projects-container div.project-container div.project-card div.image-container img {
+            height: auto;
+            width: 100%; } }
+    #projects-container div.project-container div.project-card div.description-container {
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column; }
+      @media screen and (max-width: 768px) {
+        #projects-container div.project-container div.project-card div.description-container {
+          left: 0;
+          height: auto;
+          position: static; } }
+      #projects-container div.project-container div.project-card div.description-container a {
+        color: white;
+        text-decoration: none; }
+      #projects-container div.project-container div.project-card div.description-container > * {
+        background: rgba(36, 35, 40, 0.5);
+        padding: 15px;
+        margin-bottom: 0px;
+        transition: 0.3s all; }
+        #projects-container div.project-container div.project-card div.description-container > *:hover {
+          background: rgba(36, 35, 40, 0.7); }
+      #projects-container div.project-container div.project-card div.description-container h1 {
+        font-family: "Alegreya"; }
+
+#blog-container {
+  max-width: 800px;
+  padding-top: 100px;
+  padding-bottom: 100px; }
+  #blog-container a {
+    color: #212529; }
+    #blog-container a:hover {
+      text-decoration: none; }
+  #blog-container .blog-post-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ccc;
+    transition: 0.3s all; }
+    #blog-container .blog-post-container:hover {
+      box-shadow: 0px 0px 15px #ccc; }
+  #blog-container p.publish-date {
+    margin-bottom: 0px;
+    color: #ccc !important; }
+  #blog-container p.tags span {
+    margin-right: 10px; }
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px; }
+  .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6, .post-container p {
+    width: 800px; }
+    @media screen and (max-width: 992px) {
+      .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6, .post-container p {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px; } }
+    @media screen and (max-width: 768px) {
+      .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6, .post-container p {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px; } }
+
+#photography-container, #calligraphy-container {
+  line-height: 0;
+  column-count: 1;
+  column-gap: 0px; }
+  @media screen and (min-width: 576px) {
+    #photography-container, #calligraphy-container {
+      column-count: 2; } }
+  @media screen and (min-width: 768px) {
+    #photography-container, #calligraphy-container {
+      column-count: 3; } }
+  @media screen and (min-width: 992px) {
+    #photography-container, #calligraphy-container {
+      column-count: 4; } }
+  @media screen and (min-width: 1200px) {
+    #photography-container, #calligraphy-container {
+      column-count: 5; } }
+  #photography-container img, #calligraphy-container img {
+    /* Just in case there are inline attributes */
+    width: 100% !important;
+    height: auto !important;
+    margin: 1px; }
+
+/*# sourceMappingURL=style_v2.css.map */

@@ -1,0 +1,7 @@
+extends header
+
+block content
+    .row
+        section#photography-container
+            for val in photographyArray
+                img(src= val.file)

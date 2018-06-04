@@ -1,0 +1,14 @@
+extends header
+
+block content
+    #blog-container.container
+        for val in posts
+            a(href= '/blog/' + val.slug)
+                .col-md-12.blog-post-container
+                    p.publish-date.text-muted
+                        span= val.publishDate
+                    h1= val.title
+                    p.tags
+                        for tag in val.tags
+                            span.badge.badge-pill.badge-dark= '#'+tag
+                    p= val.summary
