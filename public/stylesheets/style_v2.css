@@ -2,13 +2,25 @@ body, html {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-  font-family: "Raleway", sans-serif; }
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300; }
 
-h1 {
+h1, h2 {
   font-family: "Alegreya", "serif" !important; }
 
+nav {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0px; }
+  nav a {
+    color: #212529; }
+    nav a.active {
+      font-weight: 400;
+      border-bottom: 2px solid #f99; }
+    nav a:hover {
+      border-bottom: 2px solid #f99; }
+
 #website-container {
-  padding-top: 56px; }
+  padding-top: 49px; }
 
 .navbar {
   position: fixed;
@@ -18,6 +30,9 @@ h1 {
 #about-container {
   display: flex;
   height: 100vh; }
+  @media screen and (max-width: 576px) {
+    #about-container {
+      display: block; } }
   #about-container .about-photo {
     flex: 1;
     height: 100%;
@@ -26,18 +41,32 @@ h1 {
     background-size: cover;
     background-position-y: 100%;
     background-position-x: 50%; }
+    @media screen and (max-width: 768px) {
+      #about-container .about-photo {
+        width: 100%;
+        height: 60%; } }
   #about-container .about-description {
     display: flex;
     justify-content: center;
     vertical-align: middle;
     align-items: center;
     flex: 1; }
+    @media screen and (max-width: 768px) {
+      #about-container .about-description {
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px; } }
     #about-container .about-description div {
       flex: 1;
       margin-left: 10%;
       margin-right: 10%; }
       #about-container .about-description div h1 {
         font-family: "Alegreya", serif; }
+      #about-container .about-description div p.social {
+        margin-bottom: 0px; }
+        #about-container .about-description div p.social a {
+          color: #212529;
+          text-decoration: underline #f99; }
 
 #projects-container div.project-container {
   height: 100vh;
@@ -139,18 +168,58 @@ h1 {
   width: 100%;
   padding-top: 100px;
   padding-bottom: 100px; }
-  .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6, .post-container p {
+  .post-container p.tags span {
+    margin-right: 10px; }
+  .post-container > h1, .post-container > h2, .post-container > h3, .post-container > h4, .post-container > h5, .post-container > h6, .post-container > p, .post-container > blockquote {
     width: 800px; }
     @media screen and (max-width: 992px) {
-      .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6, .post-container p {
+      .post-container > h1, .post-container > h2, .post-container > h3, .post-container > h4, .post-container > h5, .post-container > h6, .post-container > p, .post-container > blockquote {
         width: 100%;
         padding-left: 30px;
         padding-right: 30px; } }
     @media screen and (max-width: 768px) {
-      .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6, .post-container p {
+      .post-container > h1, .post-container > h2, .post-container > h3, .post-container > h4, .post-container > h5, .post-container > h6, .post-container > p, .post-container > blockquote {
         width: 100%;
         padding-left: 15px;
         padding-right: 15px; } }
+  .post-container p {
+    font-size: 1.2em; }
+  .post-container img {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .post-container blockquote {
+    padding: 20px;
+    padding-left: 10px;
+    border-left: 10px solid #f99;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+    .post-container blockquote p {
+      margin-bottom: 0px; }
+  .post-container strong {
+    font-weight: 500; }
+
+div.paging {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center; }
+  div.paging > * {
+    text-align: center; }
+    div.paging > *:first-child {
+      justify-content: right;
+      align-items: center;
+      text-align: right; }
+    div.paging > *:last-child {
+      justify-content: left;
+      align-items: center;
+      text-align: left; }
+  div.paging div.status {
+    color: #ccc; }
+  div.paging a {
+    color: #212529; }
+  div.paging a.disabled {
+    color: #ccc !important; }
 
 #photography-container, #calligraphy-container {
   line-height: 0;

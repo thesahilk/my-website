@@ -1,5 +1,5 @@
 $font-title: 'Alegreya';
-$font-body: 'Raleway';
+$font-body: 'Fira Sans';
 
 $break-xs: 576px;
 $break-sm: 768px;
@@ -8,20 +8,37 @@ $break-lg: 1200px;
 
 $dark-color: rgb(33, 37, 41);
 $light-color: #ccc;
+$theme-color: #f99;
 
 body, html {
     margin: 0px;
     padding: 0px;
     min-height: 100vh;
     font-family: $font-body, sans-serif;
+    font-weight: 300;
 }
 
-h1 {
+h1, h2 {
     font-family: $font-title, 'serif' !important;
 }
 
+nav {
+    border-bottom: 1px solid $light-color;
+    padding-bottom: 0px;
+    a {
+        color: $dark-color;
+        &.active {
+            font-weight: 400;
+            border-bottom: 2px solid $theme-color;
+        }
+        &:hover {
+            border-bottom: 2px solid $theme-color;
+        }
+    }
+}
+
 #website-container {
-    padding-top: 56px;
+    padding-top: 49px;
 }
 
 .navbar {
@@ -33,6 +50,9 @@ h1 {
 #about-container {
     display: flex;
     height: 100vh;
+    @media screen and (max-width: $break-xs) {
+        display: block;
+    }
     .about-photo {
         flex: 1;
         height: 100%;
@@ -41,6 +61,10 @@ h1 {
         background-size: cover;
         background-position-y: 100%;
         background-position-x: 50%;
+        @media screen and (max-width: $break-sm) {
+            width: 100%;
+            height: 60%;
+        }
     }
     .about-description {
         display: flex;
@@ -48,6 +72,11 @@ h1 {
         vertical-align: middle;
         align-items: center;
         flex: 1;
+        @media screen and (max-width: $break-sm) {
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
         div {
             flex: 1;
             margin-left: 10%;
@@ -55,8 +84,12 @@ h1 {
             h1 {
                 font-family: $font-title, serif;
             }
-            p {
-
+            p.social {
+                margin-bottom: 0px;
+                a {
+                    color: $dark-color;
+                    text-decoration: underline $theme-color;
+                }
             }
         }
     }
@@ -181,8 +214,13 @@ h1 {
     align-items: center;
     width: 100%;
     padding-top: 100px;
-    padding-bottom: 100px;    
-    h1, h2, h3, h4, h5, h6, p {
+    padding-bottom: 100px;
+    p.tags {
+        span {
+            margin-right: 10px;
+        }
+    } 
+    & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > p, & > blockquote {
         width: 800px;
         @media screen and (max-width: $break-md){
             width: 100%;
@@ -194,6 +232,59 @@ h1 {
             padding-left: 15px;
             padding-right: 15px;
         }
+    }
+    p {
+        font-size: 1.2em;
+    }
+    img {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    blockquote {
+        padding: 20px;
+        padding-left: 10px;
+        border-left: 10px solid $theme-color;
+        // border-right: 10px solid $theme-color;
+        // border-top: 10px solid $theme-color;
+        // border-bottom: 10px solid $theme-color;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        p {
+            margin-bottom: 0px;
+        }
+    }
+    strong {
+        font-weight: 500;
+    }
+}
+
+div.paging {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+    & > * {
+        text-align: center;
+        &:first-child {
+            justify-content: right;
+            align-items: center;
+            text-align: right;
+        }
+        &:last-child {
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+        }
+    }
+    div.status {
+        color: $light-color;
+    }
+    a {
+        color: $dark-color;
+    }
+    a.disabled {
+        color: $light-color !important;
     }
 }
 

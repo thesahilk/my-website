@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require("../data/db_v2");
 var request = require("request");
 var process = require('process');
+var helpers = require('../helpers/constants');
 
 // var markdown = require("markdown").markdown;
 var mdBlocks = require("markdown-blocks");
@@ -15,10 +16,29 @@ router.get("/", function (req, res) {
 
 router.get("/projects", function (req, res) {
     const filters = req.body.filters;
-    const skip = req.query.skip || 0;
-    db.getProjects(filters, skip)
+    const page = req.query.page || 0;
+    db.getProjects(filters, helpers.PAGE_SIZE, page)
         .then(function (projects) {
-            res.render('v2/projects', { title: 'navarjun | projects', navbar: 'projects', projects });
+            db.getProjectsCount(filters)
+                .then(function (count) {
+                    const paging = {
+                        currPage: page,
+                        totalPages: parseInt(count / helpers.PAGE_SIZE) + 1
+                    };
+                    if (paging.totalPages === 1) {
+                        res.render('v2/projects', { title: 'navarjun | projects', navbar: 'projects', projects });
+                    }
+                    if (page !== 0) {
+                        paging.prevPage = page - 1;
+                    }
+                    if (paging.totalPages > page) {
+                        paging.nextPage = page + 1;
+                    }
+                    res.render('v2/projects', { title: 'navarjun | projects', navbar: 'projects', projects, paging });
+                }).catch(function (err) {
+                    console.log(err);
+                    res.render('v2/projects', { title: 'navarjun | projects', navbar: 'projects', projects });
+                });
         })
         .catch(function (err) {
             console.log(err);
@@ -28,10 +48,32 @@ router.get("/projects", function (req, res) {
 
 router.get("/blog", function (req, res) {
     const filters = req.body.filters;
-    const skip = req.query.skip || 0;
-    db.getBlogPosts(filters, skip)
+    const page = req.query.page || 0;
+    db.getBlogPosts(filters, helpers.PAGE_SIZE, page)
         .then(function (posts) {
-            res.render('v2/blog', { title: 'navarjun | blog', navbar: 'blog', posts });
+            posts.forEach(d => {
+                d.publishDateStr = helpers.weekdays[d.publishDate.getDay()] + ', ' + d.publishDate.getDate() + ' ' + helpers.monthNames[d.publishDate.getMonth()] + ' ' + d.publishDate.getFullYear();
+            });
+            db.getBlogPostsCount(filters)
+                .then(function (count) {
+                    const paging = {
+                        currPage: +page,
+                        totalPages: parseInt(count / helpers.PAGE_SIZE) + 1
+                    };
+                    if (paging.totalPages === 1) {
+                        res.render('v2/blog', { title: 'navarjun | blog', navbar: 'blog', posts });
+                    }
+                    if (page !== 0) {
+                        paging.prevPage = page - 1;
+                    }
+                    if (paging.totalPages > page) {
+                        paging.nextPage = page + 1;
+                    }
+                    res.render('v2/blog', { title: 'navarjun | blog', navbar: 'blog', posts, paging });
+                }).catch(function (err) {
+                    console.log(err);
+                    res.render('v2/blog', { title: 'navarjun | blog', navbar: 'blog', posts });
+                });
         })
         .catch(function (err) {
             console.log(err);
@@ -68,9 +110,26 @@ router.get("/blog/:slug", function (req, res, next) {
 
 router.get("/photography", function (req, res) {
     const filters = req.body.filters;
-    db.getPhotographs(filters)
+    const page = req.query.page || 0;
+    db.getPhotographs(filters, helpers.PAGE_SIZE_BIG, page)
         .then(function (photographyArray) {
-            res.render('v2/photography', { title: 'navarjun | photography', navbar: 'photography', photographyArray: photographyArray });
+            db.getPhotographsCount(filters)
+                .then(function (count) {
+                    const paging = {
+                        currPage: page,
+                        totalPages: parseInt(count / helpers.PAGE_SIZE) + 1
+                    };
+                    if (page !== 0) {
+                        paging.prevPage = page - 1;
+                    }
+                    if (paging.totalPages > page) {
+                        paging.nextPage = page + 1;
+                    }
+                    res.render('v2/photography', { title: 'navarjun | photography', navbar: 'photography', photographyArray: photographyArray, paging });
+                }).catch(function (err) {
+                    console.log(err);
+                    res.render('v2/photography', { title: 'navarjun | photography', navbar: 'photography', photographyArray: photographyArray });
+                });
         })
         .catch(function (err) {
             console.log(err);
@@ -80,9 +139,26 @@ router.get("/photography", function (req, res) {
 
 router.get("/calligraphy", function (req, res) {
     const filters = req.body.filters;
-    db.getCalligraphs(filters)
+    const page = req.query.page || 0;
+    db.getCalligraphs(filters, helpers.PAGE_SIZE_BIG, page)
         .then(function (calligraphyArray) {
-            res.render('v2/calligraphy', { title: 'navarjun | calligraphy', navbar: 'calligraphy', calligraphyArray: calligraphyArray });
+            db.getCalligraphsCount(filters)
+                .then(function (count) {
+                    const paging = {
+                        currPage: page,
+                        totalPages: parseInt(count / helpers.PAGE_SIZE) + 1
+                    };
+                    if (page !== 0) {
+                        paging.prevPage = page - 1;
+                    }
+                    if (paging.totalPages > page) {
+                        paging.nextPage = page + 1;
+                    }
+                    res.render('v2/calligraphy', { title: 'navarjun | calligraphy', navbar: 'calligraphy', calligraphyArray: calligraphyArray, paging });
+                }).catch(function (err) {
+                    console.log(err);
+                    res.render('v2/calligraphy', { title: 'navarjun | calligraphy', navbar: 'calligraphy', calligraphyArray: calligraphyArray });
+                });
         })
         .catch(function (err) {
             console.log(err);
@@ -111,7 +187,7 @@ router.put('/add/:type', function (req, res, next) {
     switch (type) {
     case 'blog':
         if (!obj.title || !obj.summary || !obj.blogFile) {
-            res.send(402).send({error: '(title, summary, blogFile) is a required argument (title, summary, blogFile, *tags*)'});
+            res.status(402).send({error: '(title, summary, blogFile) is a required argument (title, summary, blogFile, *tags*)'});
             return;
         }
         db.addBlogPost(obj.title, obj.summary, obj.blogFile, obj.tags)
@@ -125,7 +201,7 @@ router.put('/add/:type', function (req, res, next) {
 
     case 'project':
         if (!obj.title || !obj.startDate || !obj.endDate || !obj.description || !obj.imageFile || !obj.slug) {
-            res.send(402).send({error: '(title, startDate, endDate, description, imageFile, slug) is a required argument (title, startDate, endDate, description, imageFile, slug, *tags*)'});
+            res.status(402).send({error: '(title, startDate, endDate, description, imageFile, slug) is a required argument (title, startDate, endDate, description, imageFile, slug, *tags*)'});
             return;
         }
         obj.startDate = new Date(obj.startDate);
@@ -141,7 +217,7 @@ router.put('/add/:type', function (req, res, next) {
 
     case 'photograph':
         if (!obj.file) {
-            res.send(402).send({error: 'file is a required argument (file, externalUrl, tags)'});
+            res.status(402).send({error: 'file is a required argument (file, externalUrl, tags)'});
             return;
         }
         db.addPhotograph(obj.file, obj.externalUrl, obj.tags)

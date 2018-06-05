@@ -11,3 +11,16 @@ block content
                         a(href= '/blog/'+val.slug, style='background: rgba('+val.rgb.join(',')+', 0.5)')
                             h1= val.title
                             p= val.description
+    if (paging)
+        .col-xs-12.paging
+            if paging.currPage !== 0
+                a.btn(href='/projects?page='+paging.prevPage) < previous
+            else
+                a.btn.disabled(href='/#') previous
+            
+            div.btn.disabled.status= 'page ' + (paging.currPage+1) + ' of ' + (paging.totalPages+1)
+
+            if paging.nextPage
+                a.btn(href='/projects?page='+paging.nextPage) next >
+            else
+                a.btn.disabled(href='/#') next

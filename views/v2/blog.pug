@@ -6,9 +6,22 @@ block content
             a(href= '/blog/' + val.slug)
                 .col-md-12.blog-post-container
                     p.publish-date.text-muted
-                        span= val.publishDate
+                        span= val.publishDateStr
                     h1= val.title
                     p.tags
                         for tag in val.tags
                             span.badge.badge-pill.badge-dark= '#'+tag
                     p= val.summary
+        if (paging)
+            .col-xs-12.paging
+                if paging.currPage !== 0
+                    a.btn(href='/blog?page='+paging.prevPage) < previous
+                else
+                    a.btn.disabled(href='/#') previous
+                
+                div.btn.disabled.status= 'page ' + (paging.currPage+1) + ' of ' + (paging.totalPages+1)
+
+                if paging.nextPage
+                    a.btn(href='/blog?page='+paging.nextPage) next >
+                else
+                    a.btn.disabled(href='/#') next

@@ -181,31 +181,35 @@ mod.getCalligraphsCount = function (filter = {}) {
 };
 
 // -- GET LIST OF THINGS -- //
-mod.getBlogPosts = function (filter = {}, skip = 0) {
+mod.getBlogPosts = function (filter = {}, pageSize, page = 0) {
     return Blog.find(filter)
-        .limit(c.PAGE_SIZE)
-        .skip(skip)
+        .limit(pageSize)
+        .skip(page * pageSize)
+        .sort({createdAt: -1})
         .exec();
 };
 
-mod.getProjects = function (filter = {}, skip = 0) {
+mod.getProjects = function (filter = {}, pageSize, page = 0) {
     return Project.find(filter)
-        .limit(c.PAGE_SIZE)
-        .skip(skip)
+        .limit(pageSize)
+        .skip(page * pageSize)
+        .sort({createdAt: -1})
         .exec();
 };
 
-mod.getPhotographs = function (filter = {}, skip = 0) {
+mod.getPhotographs = function (filter = {}, pageSize, page = 0) {
     return Photograph.find(filter)
-        .limit(c.PAGE_SIZE * 2)
-        .skip(skip)
+        .limit(pageSize)
+        .skip(page * pageSize)
+        .sort({createdAt: -1})
         .exec();
 };
 
-mod.getCalligraphs = function (filter = {}, skip = 0) {
+mod.getCalligraphs = function (filter = {}, pageSize, page = 0) {
     return Calligraph.find(filter)
-        .limit(c.PAGE_SIZE * 2)
-        .skip(skip)
+        .limit(pageSize)
+        .skip(page * pageSize)
+        .sort({createdAt: -1})
         .exec();
 };
 
