@@ -1,12 +1,13 @@
+.font-title, h1, h2 {
+  font-family: "Alegreya";
+  font-weight: 800; }
+
 body, html {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
   font-family: "Fira Sans", sans-serif;
   font-weight: 300; }
-
-h1, h2 {
-  font-family: "Alegreya", "serif" !important; }
 
 nav {
   border-bottom: 1px solid #ccc;

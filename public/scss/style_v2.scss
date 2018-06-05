@@ -10,6 +10,11 @@ $dark-color: rgb(33, 37, 41);
 $light-color: #ccc;
 $theme-color: #f99;
 
+.font-title {
+    font-family: $font-title;
+    font-weight: 800;
+}
+
 body, html {
     margin: 0px;
     padding: 0px;
@@ -19,7 +24,8 @@ body, html {
 }
 
 h1, h2 {
-    font-family: $font-title, 'serif' !important;
+    @extend .font-title;
+    // font-family: $font-title, 'serif' !important;
 }
 
 nav {
