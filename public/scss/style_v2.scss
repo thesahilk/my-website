@@ -94,7 +94,11 @@ nav {
                 margin-bottom: 0px;
                 a {
                     color: $dark-color;
-                    text-decoration: underline $theme-color;
+                    border-bottom: 1px solid $theme-color;
+                    &:hover {
+                        text-decoration: none;
+                        border-bottom: 3px solid $theme-color;
+                    }
                 }
             }
         }

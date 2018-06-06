@@ -67,7 +67,10 @@ nav {
         margin-bottom: 0px; }
         #about-container .about-description div p.social a {
           color: #212529;
-          text-decoration: underline #f99; }
+          border-bottom: 1px solid #f99; }
+          #about-container .about-description div p.social a:hover {
+            text-decoration: none;
+            border-bottom: 3px solid #f99; }
 
 #projects-container div.project-container {
   height: 100vh;
