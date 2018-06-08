@@ -13,7 +13,7 @@ function getRSS () {
                         item: {
                             title: d.title,
                             link: 'http://navarjun.com/blog/' + d.slug,
-                            description: d.contentMD,
+                            description: d.content.replace(/</gmi, '&lt;').replace(/>/gmi, '&gt;'),
                             pubDate: d.publishDate,
                             guid: d._id.toString()
                         }
