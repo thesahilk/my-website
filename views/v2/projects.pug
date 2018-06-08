@@ -8,7 +8,7 @@ block content
                     .image-container
                         img(src= val.imageFile)
                     .description-container
-                        a(href= '/blog/'+val.slug, style='background: rgba('+val.rgb.join(',')+', 0.5)')
+                        a(href= '/blog/'+val.slug, style='background: rgba('+val.rgb.join(',')+', 0.7)')
                             h1= val.title
                             p= val.description
     if (paging)

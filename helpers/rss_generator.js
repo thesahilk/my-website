@@ -73,7 +73,7 @@ function getRSS () {
         });
 }
 
-var job = new CronJob('* * * * 0 0');
+var job = new CronJob('0 0 * * * *');
 job.start();
 getRSS();
 
