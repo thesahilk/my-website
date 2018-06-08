@@ -13,9 +13,9 @@ function getRSS () {
                         item: {
                             title: d.title,
                             link: 'http://navarjun.com/blog/' + d.slug,
-                            description: d.content,
+                            description: d.contentMD,
                             pubDate: d.publishDate,
-                            GUID: d._id.toString()
+                            guid: d._id.toString()
                         }
                     };
                 });
@@ -50,6 +50,7 @@ function getRSS () {
                     request.get(posts[index].blogFile, function (error, response, body) {
                         if (!error && response.statusCode === 200) {
                             var html = mdBlocks(body);
+                            posts[index].contentMD = body;
                             posts[index].content = html;
 
                             setTimeout(() => { loadBlogFile(++index); }, 0);
