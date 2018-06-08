@@ -2,10 +2,10 @@
   font-family: "Alegreya";
   font-weight: 800; }
 
-a.link {
+a.link, .post-container a {
   color: #212529;
   border-bottom: 1px solid #f99; }
-  a.link:hover {
+  a.link:hover, .post-container a:hover {
     text-decoration: none;
     border-bottom: 3px solid #f99; }
 

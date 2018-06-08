@@ -273,6 +273,9 @@ nav {
             margin-bottom: 0px;
         }
     }
+    a {
+        @extend a.link;
+    }
     strong {
         font-weight: 500;
     }
