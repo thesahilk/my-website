@@ -2,6 +2,13 @@
   font-family: "Alegreya";
   font-weight: 800; }
 
+a.link {
+  color: #212529;
+  border-bottom: 1px solid #f99; }
+  a.link:hover {
+    text-decoration: none;
+    border-bottom: 3px solid #f99; }
+
 body, html {
   margin: 0px;
   padding: 0px;

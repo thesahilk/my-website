@@ -7,7 +7,7 @@ var helpers = require('../helpers/constants');
 
 // var markdown = require("markdown").markdown;
 var mdBlocks = require("markdown-blocks");
-const { toXML } = require('jstoxml');
+const RSS_FEED = require('../helpers/rss_generator');
 var NOTICE = process.env.NOTICE;
 
 /* GET home page. */
@@ -16,49 +16,8 @@ router.get("/", function (req, res) {
 });
 
 router.get("/rss", function (req, res) {
-    db.getBlogPosts({}, 50)
-        .then(function (posts) {
-            const items = posts.map(d => {
-                return {
-                    item: {
-                        title: d.title,
-                        link: 'http://navarjun.com/blog/' + d.slug,
-                        description: d.summary,
-                        pubDate: d.publishDate
-                    }
-                };
-            });
-
-            const xmlOptions = {
-                header: true,
-                indent: '  '
-            };
-            const rssFeed = toXML(
-                {
-                    _name: 'rss',
-                    _attrs: {
-                        version: '2.0'
-                    },
-                    _content: {
-                        channel: [
-                            { title: 'navarjun | blog' },
-                            { description: 'Personal blog of Navarjun. Navarjun is an information designer and developer.' },
-                            { link: 'http://navarjun.com/blog' },
-                            { lastBuildDate: posts[0].publishDate },
-                            { pubDate: () => posts[0].publishDate },
-                            { language: 'en' },
-                            ...items
-                        ]
-                    }
-                }, xmlOptions);
-
-            res.set('Content-Type', 'text/xml');
-            res.status(200).send(rssFeed);
-        })
-        .catch(function (err) {
-            console.log(err);
-            res.status(500).send({message: 'There was an issue with creating an RSS feed. Please, report on twitter: @Navarjun.'});
-        });
+    res.set('Content-Type', 'text/xml');
+    res.status(200).send(RSS_FEED.rss());
 });
 
 router.get("/projects", function (req, res) {

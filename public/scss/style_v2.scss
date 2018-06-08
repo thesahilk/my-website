@@ -15,6 +15,15 @@ $theme-color: #f99;
     font-weight: 800;
 }
 
+a.link {
+    color: $dark-color;
+    border-bottom: 1px solid $theme-color;
+    &:hover {
+        text-decoration: none;
+        border-bottom: 3px solid $theme-color;
+    }
+}
+
 body, html {
     margin: 0px;
     padding: 0px;
