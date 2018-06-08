@@ -53,7 +53,8 @@ function getRSS () {
                         if (!error && response.statusCode === 200) {
                             var html = mdBlocks(body);
                             posts[index].contentMD = body;
-                            posts[index].content = html.replace(/\n/gim, '<br/>');
+                            posts[index].content = html.replace(/\n/gim, '<br/>')
+                                .replace(/<br\/><br\/>/gim, '');
 
                             setTimeout(() => { loadBlogFile(++index); }, 0);
                         } else {

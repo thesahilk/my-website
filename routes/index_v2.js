@@ -97,7 +97,8 @@ router.get("/blog/:slug", function (req, res, next) {
             }
             request.get(posts[0].blogFile, function (error, response, body) {
                 if (!error && response.statusCode === 200) {
-                    var html = mdBlocks(body).replace(/\n/gim, '<br/>');
+                    var html = mdBlocks(body).replace(/\n/gim, '<br/>')
+                        .replace(/<br\/><br\/>/gim, '');
                     res.render('v2/blog-post', { title: 'navarjun | blog', navbar: 'blog', post: posts[0], html: html });
                     res.render('v2/blog-post', {
                         title: posts[0].title + '| navarjun',
