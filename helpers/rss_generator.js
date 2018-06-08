@@ -7,9 +7,10 @@ const db = require('../data/db_v2');
 function getRSS () {
     db.getBlogPosts({}, 50)
         .then(function (posts) {
+            posts = posts.map(d => d.toJSON());
+
             const createXML = function () {
                 const items = posts.map(d => {
-                    console.log(d);
                     return {
                         item: {
                             title: d.title,
