@@ -9,11 +9,12 @@ function getRSS () {
         .then(function (posts) {
             const createXML = function () {
                 const items = posts.map(d => {
+                    console.log(d);
                     return {
                         item: {
                             title: d.title,
                             link: 'http://navarjun.com/blog/' + d.slug,
-                            description: d.content.replace(/</gmi, '&lt;').replace(/>/gmi, '&gt;'),
+                            description: d.content ? d.content.replace(/</gmi, '&lt;').replace(/>/gmi, '&gt;') : d.content,
                             pubDate: d.publishDate,
                             guid: d._id.toString()
                         }
