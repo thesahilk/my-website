@@ -4,10 +4,10 @@
 
 a.link, .post-container a {
   color: #212529;
-  border-bottom: 1px solid #f99; }
+  border-bottom: 1px solid #0f0; }
   a.link:hover, .post-container a:hover {
     text-decoration: none;
-    border-bottom: 3px solid #f99; }
+    border-bottom: 3px solid #0f0; }
 
 body, html {
   margin: 0px;
@@ -23,9 +23,9 @@ nav {
     color: #212529; }
     nav a.active {
       font-weight: 400;
-      border-bottom: 2px solid #f99; }
+      border-bottom: 2px solid #0f0; }
     nav a:hover {
-      border-bottom: 2px solid #f99; }
+      border-bottom: 2px solid #0f0; }
 
 #website-container {
   padding-top: 49px; }
@@ -74,10 +74,10 @@ nav {
         margin-bottom: 0px; }
         #about-container .about-description div p.social a {
           color: #212529;
-          border-bottom: 1px solid #f99; }
+          border-bottom: 1px solid #0f0; }
           #about-container .about-description div p.social a:hover {
             text-decoration: none;
-            border-bottom: 3px solid #f99; }
+            border-bottom: 3px solid #0f0; }
 
 #projects-container div.project-container {
   height: 100vh;
@@ -202,7 +202,7 @@ nav {
   .post-container blockquote {
     padding: 20px;
     padding-left: 10px;
-    border-left: 10px solid #f99;
+    border-left: 10px solid #0f0;
     margin-top: 20px;
     margin-bottom: 20px; }
     .post-container blockquote p {
