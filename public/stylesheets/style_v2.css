@@ -1,11 +1,11 @@
-.navbar-brand {
+.navbar-light .navbar-brand {
   color: #C0C0C0;
   line-height: 1.14;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   font-size: 21px;
   font-weight: 700; }
-  .navbar-brand:hover {
+  .navbar-light .navbar-brand:hover {
     width: 64px;
     background-image: linear-gradient(to right, #1268c3, #d24074);
     font-size: 21px;
@@ -17,6 +17,17 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent; }
+.navbar-light .navbar-nav .nav-link {
+  color: #082035;
+  height: 36px;
+  margin-right: 12%;
+  margin-bottom: 12px;
+  font-weight: 600; }
+  .navbar-light .navbar-nav .nav-link.active {
+    color: #0E83F3; }
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #0E83F3;
+    border-bottom: 1px solid #0E83F3; }
 
 html, body {
   font-size: 16px; }
