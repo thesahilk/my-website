@@ -1,5 +1,5 @@
-$font-title: 'Alegreya';
-$font-body: 'Fira Sans';
+$font-title: 'Source Sans Pro';
+$font-body: 'Source Sans Pro';
 
 $break-xs: 576px;
 $break-sm: 768px;
@@ -9,45 +9,119 @@ $break-lg: 1200px;
 $dark-color: rgb(33, 37, 41);
 $light-color: #ccc;
 $theme-color: #0f0;
+$twitter-color: #4DB8EC;
+$email-color: #082035;
+$dribbble-color: #EC4A89;
+$body-color: #65707B;
+
+html, body { 
+    font-size: 16px; 
+}
 
 .font-title {
     font-family: $font-title;
-    font-weight: 800;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.bg-white {
+    background-color: white;
+    //color: white;
+}
+
+.navbar-brand {
+    color: #C0C0C0;
+    line-height: 1.14;
+   // &.active {
+            font-size: 21px;
+            font-weight: 700;
+            //border-bottom: 2px solid $theme-color;
+     //   }
+    &:hover {
+            width: 64px;
+           // height: 24px;
+            background-image: linear-gradient(to right, #1268c3, #d24074);
+            font-size: 21px;
+            font-weight: 700;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.14;
+            letter-spacing: normal;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+           // border-bottom: 2px solid $theme-color;
+        }  
 }
 
 a.link {
-    color: $dark-color;
-    border-bottom: 1px solid $theme-color;
+    color: #0E83F3;
+    font-weight: 600;
+    border-bottom: 1px solid #0E83F3;
     &:hover {
+        color: #52A7F9;
         text-decoration: none;
-        border-bottom: 3px solid $theme-color;
+        border-bottom: 1px solid #52A7F9;
+    }
+}
+
+a.currentcompany {
+    color: #FFB900;
+    font-weight: 600;
+    border-bottom: 1px solid #FFB900;
+    &:hover {
+        color: #FFDC7F;
+        text-decoration: none;
+        border-bottom: 1px solid #FFDC7F;
     }
 }
 
 body, html {
     margin: 0px;
+    background-color: white;
     padding: 0px;
+    line-height: 1.75;
     min-height: 100vh;
     font-family: $font-body, sans-serif;
     font-weight: 300;
+    color: $body-color;
+}
+
+p {
+    margin-bottom: 3%;
 }
 
 h1, h2 {
     @extend .font-title;
+    color: #082035;
+    line-height: 1.25;
+    margin-bottom: 3%;
     // font-family: $font-title, 'serif' !important;
 }
 
+
+.Hover .text-style-1 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #1268c3, #d24074);
+}
+
 nav {
-    border-bottom: 1px solid $light-color;
+    //border-bottom: 1px solid $light-color;
     padding-bottom: 0px;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
     a {
-        color: $dark-color;
+        color: #082035;
+        margin-right: 12%;
+        font-weight: 600;
         &.active {
-            font-weight: 400;
-            border-bottom: 2px solid $theme-color;
+            color: white;
         }
         &:hover {
-            border-bottom: 2px solid $theme-color;
+            color: #0E83F3;
+            text-decoration: underline;
         }
     }
 }
@@ -58,18 +132,23 @@ nav {
 
 .navbar {
     position: fixed;
+    background-color: white;
     width: 100%;
     z-index: 100;
 }
 
+
 #about-container {
     display: flex;
-    height: 100vh;
+    //height: 100vh;
+    height: calc(100vh - 60px);
+    align-items: center;
+    justify-content: center;
     @media screen and (max-width: $break-xs) {
         display: block;
     }
     .about-photo {
-        flex: 1;
+        //flex: 1;
         height: 100%;
         width: 50%;
         background: url('../public/pic.JPG');
@@ -83,10 +162,11 @@ nav {
     }
     .about-description {
         display: flex;
-        justify-content: center;
         vertical-align: middle;
         align-items: center;
-        flex: 1;
+        justify-content: center;
+        //flex: 1;
+        width: 680px;
         @media screen and (max-width: $break-sm) {
             width: 100%;
             padding-top: 30px;
@@ -94,19 +174,49 @@ nav {
         }
         div {
             flex: 1;
-            margin-left: 10%;
-            margin-right: 10%;
+            margin-left: 8%;
+            margin-right: 8%;
             h1 {
                 font-family: $font-title, serif;
             }
+            p.subtitle {
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 1.6;
+                margin-bottom: 6%;
+//                color: #;
+            }
             p.social {
                 margin-bottom: 0px;
-                a {
-                    color: $dark-color;
-                    border-bottom: 1px solid $theme-color;
+                a.twitter {
+                    font-weight: 600;
+                    color: $twitter-color;
+                    border-bottom: 1px solid $twitter-color;
                     &:hover {
                         text-decoration: none;
-                        border-bottom: 3px solid $theme-color;
+                        color: #94D5F4;
+                        border-bottom: 1px solid #94D5F4;
+                    }
+                }
+                a.email {
+                     font-weight: 600;
+                     color: $email-color;
+                     border-bottom: 1px solid $email-color;
+                     &:hover {
+                     color: #75818D;
+                     text-decoration: none;
+                     border-bottom: 1px solid #75818D;
+                    }
+                }
+                
+                a.dribbble {
+                    font-weight: 600;
+                    color: $dribbble-color;
+                    border-bottom: 1px solid $dribbble-color;
+                    &:hover {
+                        color: #F180AC;
+                        text-decoration: none;
+                        border-bottom: 1px solid #F180AC;
                     }
                 }
             }

@@ -20,7 +20,7 @@ router.get("/rss", function (req, res) {
     res.status(200).send(RSS_FEED.rss());
 });
 
-router.get("/projects", function (req, res) {
+router.get("/work", function (req, res) {
     const filters = req.body.filters;
     const page = req.query.page || 0;
     db.getProjects(filters, helpers.PAGE_SIZE, page)
@@ -32,7 +32,7 @@ router.get("/projects", function (req, res) {
                         totalPages: parseInt(count / helpers.PAGE_SIZE) + 1
                     };
                     if (paging.totalPages === 1) {
-                        res.render('v2/projects', { title: 'navarjun | projects', navbar: 'projects', projects });
+                        res.render('v2/projects', { title: 'Sahil K | Work', navbar: 'work', projects });
                     }
                     if (page !== 0) {
                         paging.prevPage = page - 1;
@@ -40,10 +40,10 @@ router.get("/projects", function (req, res) {
                     if (paging.totalPages > page) {
                         paging.nextPage = page + 1;
                     }
-                    res.render('v2/projects', { title: 'navarjun | projects', navbar: 'projects', projects, paging });
+                    res.render('v2/projects', { title: 'Sahil K | Work', navbar: 'work', projects, paging });
                 }).catch(function (err) {
                     console.log(err);
-                    res.render('v2/projects', { title: 'navarjun | projects', navbar: 'projects', projects });
+                    res.render('v2/projects', { title: 'Sahil K | Work', navbar: 'work', projects });
                 });
         })
         .catch(function (err) {

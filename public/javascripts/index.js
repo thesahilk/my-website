@@ -13,4 +13,4 @@
         }; a.__SV = 1.2; b = e.createElement("script"); b.type = "text/javascript"; b.async = !0; b.src = typeof MIXPANEL_CUSTOM_LIB_URL !== "undefined" ? MIXPANEL_CUSTOM_LIB_URL : e.location.protocol === "file:" && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; c = e.getElementsByTagName("script")[0]; c.parentNode.insertBefore(b, c);
     }
 })(document, window.mixpanel || []);
-mixpanel.init("54da5b1ae8d9f9b2db7fc61b124c3f59");
+mixpanel.init("");

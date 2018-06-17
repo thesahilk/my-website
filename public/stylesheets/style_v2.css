@@ -1,48 +1,106 @@
+html, body {
+  font-size: 16px; }
+
 .font-title, h1, h2 {
-  font-family: "Alegreya";
-  font-weight: 800; }
+  font-family: "Source Sans Pro";
+  font-weight: 700;
+  font-size: 40px; }
+
+.bg-white {
+  background-color: white; }
+
+.navbar-brand {
+  color: #C0C0C0;
+  line-height: 1.14;
+  font-size: 21px;
+  font-weight: 700; }
+  .navbar-brand:hover {
+    width: 64px;
+    background-image: linear-gradient(to right, #1268c3, #d24074);
+    font-size: 21px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; }
 
 a.link, .post-container a {
-  color: #212529;
-  border-bottom: 1px solid #0f0; }
+  color: #0E83F3;
+  font-weight: 600;
+  border-bottom: 1px solid #0E83F3; }
   a.link:hover, .post-container a:hover {
+    color: #52A7F9;
     text-decoration: none;
-    border-bottom: 3px solid #0f0; }
+    border-bottom: 1px solid #52A7F9; }
+
+a.currentcompany {
+  color: #FFB900;
+  font-weight: 600;
+  border-bottom: 1px solid #FFB900; }
+  a.currentcompany:hover {
+    color: #FFDC7F;
+    text-decoration: none;
+    border-bottom: 1px solid #FFDC7F; }
 
 body, html {
   margin: 0px;
+  background-color: white;
   padding: 0px;
+  line-height: 1.75;
   min-height: 100vh;
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 300; }
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  color: #65707B; }
+
+p {
+  margin-bottom: 3%; }
+
+h1, h2 {
+  color: #082035;
+  line-height: 1.25;
+  margin-bottom: 3%; }
+
+.Hover .text-style-1 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #1268c3, #d24074); }
 
 nav {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 0px; }
+  padding-bottom: 0px;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right); }
   nav a {
-    color: #212529; }
+    color: #082035;
+    margin-right: 12%;
+    font-weight: 600; }
     nav a.active {
-      font-weight: 400;
-      border-bottom: 2px solid #0f0; }
+      color: white; }
     nav a:hover {
-      border-bottom: 2px solid #0f0; }
+      color: #0E83F3;
+      text-decoration: underline; }
 
 #website-container {
   padding-top: 49px; }
 
 .navbar {
   position: fixed;
+  background-color: white;
   width: 100%;
   z-index: 100; }
 
 #about-container {
   display: flex;
-  height: 100vh; }
+  height: calc(100vh - 60px);
+  align-items: center;
+  justify-content: center; }
   @media screen and (max-width: 576px) {
     #about-container {
       display: block; } }
   #about-container .about-photo {
-    flex: 1;
     height: 100%;
     width: 50%;
     background: url("../public/pic.JPG");
@@ -55,10 +113,10 @@ nav {
         height: 60%; } }
   #about-container .about-description {
     display: flex;
-    justify-content: center;
     vertical-align: middle;
     align-items: center;
-    flex: 1; }
+    justify-content: center;
+    width: 680px; }
     @media screen and (max-width: 768px) {
       #about-container .about-description {
         width: 100%;
@@ -66,18 +124,41 @@ nav {
         padding-bottom: 30px; } }
     #about-container .about-description div {
       flex: 1;
-      margin-left: 10%;
-      margin-right: 10%; }
+      margin-left: 8%;
+      margin-right: 8%; }
       #about-container .about-description div h1 {
-        font-family: "Alegreya", serif; }
+        font-family: "Source Sans Pro", serif; }
+      #about-container .about-description div p.subtitle {
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 6%; }
       #about-container .about-description div p.social {
         margin-bottom: 0px; }
-        #about-container .about-description div p.social a {
-          color: #212529;
-          border-bottom: 1px solid #0f0; }
-          #about-container .about-description div p.social a:hover {
+        #about-container .about-description div p.social a.twitter {
+          font-weight: 600;
+          color: #4DB8EC;
+          border-bottom: 1px solid #4DB8EC; }
+          #about-container .about-description div p.social a.twitter:hover {
             text-decoration: none;
-            border-bottom: 3px solid #0f0; }
+            color: #94D5F4;
+            border-bottom: 1px solid #94D5F4; }
+        #about-container .about-description div p.social a.email {
+          font-weight: 600;
+          color: #082035;
+          border-bottom: 1px solid #082035; }
+          #about-container .about-description div p.social a.email:hover {
+            color: #75818D;
+            text-decoration: none;
+            border-bottom: 1px solid #75818D; }
+        #about-container .about-description div p.social a.dribbble {
+          font-weight: 600;
+          color: #EC4A89;
+          border-bottom: 1px solid #EC4A89; }
+          #about-container .about-description div p.social a.dribbble:hover {
+            color: #F180AC;
+            text-decoration: none;
+            border-bottom: 1px solid #F180AC; }
 
 #projects-container div.project-container {
   height: 100vh;
@@ -149,7 +230,7 @@ nav {
         #projects-container div.project-container div.project-card div.description-container > *:hover {
           background: rgba(36, 35, 40, 0.7); }
       #projects-container div.project-container div.project-card div.description-container h1 {
-        font-family: "Alegreya"; }
+        font-family: "Source Sans Pro"; }
 
 #blog-container {
   max-width: 800px;
