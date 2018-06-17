@@ -1,6 +1,8 @@
 .navbar-brand {
   color: #C0C0C0;
   line-height: 1.14;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   font-size: 21px;
   font-weight: 700; }
   .navbar-brand:hover {
