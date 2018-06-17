@@ -16,9 +16,9 @@ html(lang='en')
     script(type="text/javascript", src="/javascripts/index.js")
 
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light.bg-white
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .container
-        a.navbar-brand( href='/', class= (navbar==='home'?'active':'')) Sahil K
+        a.navbar-brand(href='/', class= (navbar==='home'?'active':'')) Sahil K
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
         #navbarSupportedContent.collapse.navbar-collapse
@@ -32,9 +32,9 @@ html(lang='en')
               li.nav-item
                 a(href='/work', class= (navbar == 'work' ? 'nav-link active' : 'nav-link' )) Work
               li.nav-item
-                a.nav-link(href='/blog', class= (navbar == 'blog' ? 'nav-link active' : 'nav-link' )) Blog
+                a(href='/blog', class= (navbar == 'blog' ? 'nav-link active' : 'nav-link' )) Blog
               li.nav-item
-                a.nav-link(href='http://instagram.com/thesahilk', class= (navbar == 'photography' ? 'nav-link active' : 'nav-link' )) Photography
+                a(href='http://instagram.com/thesahilk', class= (navbar == 'photography' ? 'nav-link active' : 'nav-link' )) Photography
                 
     #website-container.container-fluid
       block content

@@ -69,13 +69,13 @@ h1, h2 {
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(to right, #1268c3, #d24074); }
 
-.nav-link {
+.navbar-link {
   color: #082035;
   margin-right: 12%;
   font-weight: 600; }
-  .nav-link.active {
+  .navbar-link.active {
     color: #0E83F3; }
-  .nav-link:hover {
+  .navbar-link:hover {
     color: #0E83F3;
     text-decoration: underline; }
 
