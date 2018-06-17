@@ -12,7 +12,7 @@ var NOTICE = process.env.NOTICE;
 
 /* GET home page. */
 router.get("/", function (req, res) {
-    res.render('v2/index', { title: 'navarjun', navbar: 'home' });
+    res.render('v2/index', { title: 'Sahil K', navbar: 'home' });
 });
 
 router.get("/rss", function (req, res) {
@@ -67,7 +67,7 @@ router.get("/blog", function (req, res) {
                         totalPages: parseInt(count / helpers.PAGE_SIZE) + 1
                     };
                     if (paging.totalPages === 1) {
-                        res.render('v2/blog', { title: 'navarjun | blog', navbar: 'blog', posts });
+                        res.render('v2/blog', { title: 'Sahil K | blog', navbar: 'blog', posts });
                     }
                     if (page !== 0) {
                         paging.prevPage = page - 1;
@@ -75,10 +75,10 @@ router.get("/blog", function (req, res) {
                     if (paging.totalPages > page) {
                         paging.nextPage = page + 1;
                     }
-                    res.render('v2/blog', { title: 'navarjun | blog', navbar: 'blog', posts, paging });
+                    res.render('v2/blog', { title: 'Sahil K | blog', navbar: 'blog', posts, paging });
                 }).catch(function (err) {
                     console.log(err);
-                    res.render('v2/blog', { title: 'navarjun | blog', navbar: 'blog', posts });
+                    res.render('v2/blog', { title: 'Sahil K | blog', navbar: 'blog', posts });
                 });
         })
         .catch(function (err) {
@@ -99,9 +99,9 @@ router.get("/blog/:slug", function (req, res, next) {
                 if (!error && response.statusCode === 200) {
                     var html = mdBlocks(body).replace(/\n/gim, '<br/>')
                         .replace(/<br\/><br\/>/gim, '');
-                    res.render('v2/blog-post', { title: 'navarjun | blog', navbar: 'blog', post: posts[0], html: html });
+                    res.render('v2/blog-post', { title: 'Sahil K | blog', navbar: 'blog', post: posts[0], html: html });
                     res.render('v2/blog-post', {
-                        title: posts[0].title + '| navarjun',
+                        title: posts[0].title + '| sahilk',
                         navbar: 'blog',
                         post: posts[0],
                         html: html
@@ -132,10 +132,10 @@ router.get("/photography", function (req, res) {
                     if (paging.totalPages > page) {
                         paging.nextPage = page + 1;
                     }
-                    res.render('v2/photography', { title: 'navarjun | photography', navbar: 'photography', photographyArray: photographyArray, paging });
+                    res.render('v2/photography', { title: 'Sahil K | photography', navbar: 'photography', photographyArray: photographyArray, paging });
                 }).catch(function (err) {
                     console.log(err);
-                    res.render('v2/photography', { title: 'navarjun | photography', navbar: 'photography', photographyArray: photographyArray });
+                    res.render('v2/photography', { title: 'Sahil K | photography', navbar: 'photography', photographyArray: photographyArray });
                 });
         })
         .catch(function (err) {
@@ -161,10 +161,10 @@ router.get("/calligraphy", function (req, res) {
                     if (paging.totalPages > page) {
                         paging.nextPage = page + 1;
                     }
-                    res.render('v2/calligraphy', { title: 'navarjun | calligraphy', navbar: 'calligraphy', calligraphyArray: calligraphyArray, paging });
+                    res.render('v2/calligraphy', { title: 'Sahil K | calligraphy', navbar: 'calligraphy', calligraphyArray: calligraphyArray, paging });
                 }).catch(function (err) {
                     console.log(err);
-                    res.render('v2/calligraphy', { title: 'navarjun | calligraphy', navbar: 'calligraphy', calligraphyArray: calligraphyArray });
+                    res.render('v2/calligraphy', { title: 'Sahil K | calligraphy', navbar: 'calligraphy', calligraphyArray: calligraphyArray });
                 });
         })
         .catch(function (err) {

@@ -14,20 +14,6 @@ $email-color: #082035;
 $dribbble-color: #EC4A89;
 $body-color: #65707B;
 
-html, body { 
-    font-size: 16px; 
-}
-
-.font-title {
-    font-family: $font-title;
-    font-weight: 700;
-    font-size: 40px;
-}
-
-.bg-white {
-    background-color: white;
-    //color: white;
-}
 
 .navbar-brand {
     color: #C0C0C0;
@@ -52,6 +38,22 @@ html, body {
             -webkit-text-fill-color: transparent;
            // border-bottom: 2px solid $theme-color;
         }  
+}
+
+
+html, body { 
+    font-size: 16px; 
+}
+
+.font-title {
+    font-family: $font-title;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.bg-white {
+    background-color: white;
+    //color: white;
 }
 
 a.link {
@@ -107,6 +109,19 @@ h1, h2 {
   background-image: linear-gradient(to right, #1268c3, #d24074);
 }
 
+.nav-link {
+    color: #082035;
+        margin-right: 12%;
+        font-weight: 600;
+        &.active {
+            color: #0E83F3;
+        }
+        &:hover {
+            color: #0E83F3;
+            text-decoration: underline;
+        }
+}
+
 nav {
     //border-bottom: 1px solid $light-color;
     padding-bottom: 0px;
@@ -117,13 +132,14 @@ nav {
         margin-right: 12%;
         font-weight: 600;
         &.active {
-            color: white;
+            color: #0E83F3;
         }
         &:hover {
             color: #0E83F3;
             text-decoration: underline;
         }
     }
+    
 }
 
 #website-container {
