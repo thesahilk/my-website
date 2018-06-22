@@ -258,17 +258,36 @@ nav {
 }
 
 #projects-container {
+    display: flex;
+    margin-top: 6%;
+    margin-bottom: 3%;
+//    height: 100vh;
+    align-items: center;
+    justify-content: center;
     div.project-container {
-        height: 100vh;
-        background: rgb(36, 35, 40);
-        width: 100%;
+        width: 640px;
         justify-content: center;
         align-items: center;
-        display: flex;
         @media screen and (max-width: $break-sm) {
             height: auto;
             padding-top: 30px;
             padding-bottom: 30px;
+        }
+        .company-container {
+            margin-bottom: 28px;
+            display: flex;
+        }
+        .timeline {
+            color: #B2B8BD;
+            justify-content: flex-start;
+            font-weight: 600;
+        }
+        .center-margin {
+            width: 48px;
+        }
+        .workinfo {
+            width: 510px;
+            flex: 1;
         }
         div.project-card {
             color: white;
