@@ -263,6 +263,8 @@ nav {
     display: flex;
     margin-top: 6%;
     margin-bottom: 3%;
+    margin-left: 12px;
+    margin-right: 12px;
 //    height: 100vh;
     align-items: center;
     justify-content: center;
@@ -285,12 +287,26 @@ nav {
             font-weight: 600;
         }
         .center-margin {
-            width: 48px;
+            width: 24px;
+            @media screen and (max-width: $break-sm) {
+                width: 24px;
+            }
+            @media screen and (max-width: $break-xs) {
+                width: 16px;
+            }
+//            width: 48px;
         }
         .workinfo {
-            width: 510px;
+            //width: 510px;
             flex: 1;
         }
+
+        .work-image{
+            height: 100%;
+            flex: 1;
+            float: left;
+        }
+
         div.project-card {
             color: white;
             height: 70%;

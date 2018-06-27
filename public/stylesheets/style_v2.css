@@ -184,6 +184,8 @@ nav {
   display: flex;
   margin-top: 6%;
   margin-bottom: 3%;
+  margin-left: 12px;
+  margin-right: 12px;
   align-items: center;
   justify-content: center; }
   #projects-container div.project-container {
@@ -203,10 +205,19 @@ nav {
       justify-content: flex-start;
       font-weight: 600; }
     #projects-container div.project-container .center-margin {
-      width: 48px; }
+      width: 24px; }
+      @media screen and (max-width: 768px) {
+        #projects-container div.project-container .center-margin {
+          width: 24px; } }
+      @media screen and (max-width: 576px) {
+        #projects-container div.project-container .center-margin {
+          width: 16px; } }
     #projects-container div.project-container .workinfo {
-      width: 510px;
       flex: 1; }
+    #projects-container div.project-container .work-image {
+      height: 100%;
+      flex: 1;
+      float: left; }
     #projects-container div.project-container div.project-card {
       color: white;
       height: 70%;
