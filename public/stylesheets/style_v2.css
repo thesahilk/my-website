@@ -19,7 +19,7 @@
     -webkit-text-fill-color: transparent; }
 .navbar-light .navbar-nav .nav-link {
   color: #082035;
-  margin-right: 24%;
+  padding-right: 2.5rem;
   font-weight: 600; }
   .navbar-light .navbar-nav .nav-link.active {
     color: #C0C0C0; }
@@ -189,13 +189,12 @@ nav {
   align-items: center;
   justify-content: center; }
   #projects-container div.project-container {
-    width: 640px;
+    width: 1136px;
     justify-content: center;
     align-items: center; }
     @media screen and (max-width: 768px) {
       #projects-container div.project-container {
         height: auto;
-        padding-top: 30px;
         padding-bottom: 30px; } }
     #projects-container div.project-container .company-container {
       margin-bottom: 28px;
@@ -214,10 +213,47 @@ nav {
           width: 16px; } }
     #projects-container div.project-container .workinfo {
       flex: 1; }
+    #projects-container div.project-container .work-item {
+      display: flex;
+      margin-bottom: 6%; }
+      @media screen and (max-width: 768px) {
+        #projects-container div.project-container .work-item {
+          flex-direction: column; } }
+    #projects-container div.project-container .work-content {
+      margin-top: 2%;
+      flex: 1; }
+      @media screen and (max-width: 768px) {
+        #projects-container div.project-container .work-content {
+          float: none;
+          width: 100%; } }
+      @media screen and (max-width: 1200px) {
+        #projects-container div.project-container .work-content {
+          flex: 60; } }
+    #projects-container div.project-container .work-center {
+      width: 40px; }
+      @media screen and (max-width: 768px) {
+        #projects-container div.project-container .work-center {
+          width: 16px; } }
+      @media screen and (max-width: 576px) {
+        #projects-container div.project-container .work-center {
+          width: 16px; } }
     #projects-container div.project-container .work-image {
       height: 100%;
-      flex: 1;
       float: left; }
+      @media screen and (max-width: 1200px) {
+        #projects-container div.project-container .work-image {
+          flex: 40; } }
+      @media screen and (max-width: 768px) {
+        #projects-container div.project-container .work-image {
+          float: none;
+          width: 100%; } }
+      #projects-container div.project-container .work-image img {
+        height: 100%;
+        max-width: 100%; }
+        @media screen and (max-width: 768px) {
+          #projects-container div.project-container .work-image img {
+            height: auto;
+            width: 100%; } }
     #projects-container div.project-container div.project-card {
       color: white;
       height: 70%;
