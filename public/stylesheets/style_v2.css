@@ -245,7 +245,8 @@ nav {
           flex: 50; } }
       @media screen and (max-width: 992px) {
         #projects-container div.project-container .work-image {
-          flex: 50; } }
+          float: none;
+          width: 100%; } }
       @media screen and (max-width: 768px) {
         #projects-container div.project-container .work-image {
           float: none;
