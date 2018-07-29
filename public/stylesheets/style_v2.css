@@ -248,7 +248,6 @@ nav {
           float: none;
           width: 100%; } }
       #projects-container div.project-container .work-image img {
-        height: 100%;
         max-width: 100%; }
         @media screen and (max-width: 840px) {
           #projects-container div.project-container .work-image img {
