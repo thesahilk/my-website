@@ -338,7 +338,10 @@ nav {
             height: 100%;
             float: left;
             @media screen and (max-width: $break-lg) {
-                flex: 40;
+                flex: 50;
+            }
+            @media screen and (max-width: $break-md) {
+                flex:50;
             }
             @media screen and (max-width: $break-sm) {
                 float: none;

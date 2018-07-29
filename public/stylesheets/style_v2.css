@@ -242,7 +242,10 @@ nav {
       float: left; }
       @media screen and (max-width: 1200px) {
         #projects-container div.project-container .work-image {
-          flex: 40; } }
+          flex: 50; } }
+      @media screen and (max-width: 992px) {
+        #projects-container div.project-container .work-image {
+          flex: 50; } }
       @media screen and (max-width: 768px) {
         #projects-container div.project-container .work-image {
           float: none;
