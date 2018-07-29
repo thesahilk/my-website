@@ -305,7 +305,7 @@ nav {
 
         .work-item {
             display: flex;
-            @media screen and (max-width: $break-sm) {
+            @media screen and (max-width: 840px) {
                 flex-direction: column;
             }
             margin-bottom: 6%;
@@ -340,18 +340,16 @@ nav {
             @media screen and (max-width: $break-lg) {
                 flex: 50;
             }
-            @media screen and (max-width: $break-md) {
-                float: none;
-                width: 100%;
-            }
-            @media screen and (max-width: $break-sm) {
+            @media screen and (max-width: 840px) {
+            //@media screen and (max-width: $break-sm) {
                 float: none;
                 width: 100%;
             }
             img {
                 height: 100%;
                 max-width: 100%;
-                @media screen and (max-width: $break-sm) {
+                @media screen and (max-width: 840px) {
+                //@media screen and (max-width: $break-sm) {
                     height: auto;
                     width: 100%;
                 }

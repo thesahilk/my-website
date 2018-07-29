@@ -216,7 +216,7 @@ nav {
     #projects-container div.project-container .work-item {
       display: flex;
       margin-bottom: 6%; }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 840px) {
         #projects-container div.project-container .work-item {
           flex-direction: column; } }
     #projects-container div.project-container .work-content {
@@ -243,18 +243,14 @@ nav {
       @media screen and (max-width: 1200px) {
         #projects-container div.project-container .work-image {
           flex: 50; } }
-      @media screen and (max-width: 992px) {
-        #projects-container div.project-container .work-image {
-          float: none;
-          width: 100%; } }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 840px) {
         #projects-container div.project-container .work-image {
           float: none;
           width: 100%; } }
       #projects-container div.project-container .work-image img {
         height: 100%;
         max-width: 100%; }
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 840px) {
           #projects-container div.project-container .work-image img {
             height: auto;
             width: 100%; } }
