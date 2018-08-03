@@ -3,27 +3,40 @@
   line-height: 1.14;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+  -webkit-transition: all 0.2s;
+  /* Safari */
+  -webkit-transition-timing-function: ease;
+  /* Safari */
+  transition: all 0.2s;
+  transition-timing-function: ease;
   font-size: 21px;
   font-weight: 700; }
   .navbar-light .navbar-brand:hover {
     width: 64px;
-    background-image: linear-gradient(to right, #1268c3, #d24074);
+    transform: scale(0.95, 0.95);
+    color: #0E83F3;
     font-size: 21px;
     font-weight: 700;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.14;
-    letter-spacing: normal;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    letter-spacing: normal; }
 .navbar-light .navbar-nav .nav-link {
   color: #082035;
   padding-right: 2.5rem;
-  font-weight: 600; }
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  -webkit-transition: all 0.2s;
+  /* Safari */
+  -webkit-transition-timing-function: ease;
+  /* Safari */
+  transition: all 0.2s;
+  transition-timing-function: ease; }
   .navbar-light .navbar-nav .nav-link.active {
     color: #C0C0C0; }
   .navbar-light .navbar-nav .nav-link:hover {
+    transform: scale(0.95, 0.95);
+    transform-origin: 50% 80%;
     color: #0E83F3; }
 
 html, body {
@@ -40,6 +53,7 @@ html, body {
 a.link, .post-container a {
   color: #0E83F3;
   font-weight: 600;
+  letter-spacing: 0.2px;
   border-bottom: 1px solid #0E83F3; }
   a.link:hover, .post-container a:hover {
     color: #52A7F9;
@@ -100,8 +114,7 @@ nav {
     nav a.active {
       color: #0E83F3; }
     nav a:hover {
-      color: #0E83F3;
-      text-decoration: underline; }
+      color: #0E83F3; }
 
 #website-container {
   padding-top: 49px; }
@@ -154,31 +167,46 @@ nav {
         line-height: 1.6;
         margin-bottom: 6%; }
       #about-container .about-description div p.social {
-        margin-bottom: 0px; }
+        margin-bottom: 0px;
+        letter-spacing: 6px;
+        padding-top: 8px;
+        display: inline-flex;
+        -webkit-transition: all 0.2s;
+        /* Safari */
+        -webkit-transition-timing-function: ease;
+        /* Safari */
+        transition: all 0.2s;
+        transition-timing-function: ease; }
         #about-container .about-description div p.social a.twitter {
           font-weight: 600;
+          letter-spacing: 0.5px;
           color: #4DB8EC;
-          border-bottom: 1px solid #4DB8EC; }
+          padding-right: 12px; }
           #about-container .about-description div p.social a.twitter:hover {
+            transform: scale(0.95, 0.95);
+            transform-origin: 50% 80%;
             text-decoration: none;
-            color: #94D5F4;
-            border-bottom: 1px solid #94D5F4; }
+            color: #94D5F4; }
         #about-container .about-description div p.social a.email {
           font-weight: 600;
-          color: #082035;
-          border-bottom: 1px solid #082035; }
+          letter-spacing: 0.5px;
+          padding: 0px 12px 0 8px;
+          color: #082035; }
           #about-container .about-description div p.social a.email:hover {
             color: #75818D;
-            text-decoration: none;
-            border-bottom: 1px solid #75818D; }
+            transform: scale(0.95, 0.95);
+            transform-origin: 50% 80%;
+            text-decoration: none; }
         #about-container .about-description div p.social a.dribbble {
           font-weight: 600;
-          color: #EC4A89;
-          border-bottom: 1px solid #EC4A89; }
+          letter-spacing: 0.5px;
+          padding: 0px 0px 0px 8px;
+          color: #EC4A89; }
           #about-container .about-description div p.social a.dribbble:hover {
             color: #F180AC;
             text-decoration: none;
-            border-bottom: 1px solid #F180AC; }
+            transform: scale(0.95, 0.95);
+            transform-origin: 50% 80%; }
 
 #projects-container {
   display: flex;
