@@ -127,7 +127,7 @@ nav {
 
 #about-container {
   display: flex;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 80px);
   align-items: center;
   justify-content: center; }
   @media screen and (max-width: 576px) {
